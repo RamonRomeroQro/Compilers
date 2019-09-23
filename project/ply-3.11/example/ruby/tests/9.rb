@@ -1,29 +1,37 @@
 # This is a
 # comment
-puts "This program contains a single word/line comment".
+puts "This program contains a single word/line comment"
+
+
 =begin
 THIS IS
 A MULTILINE
 COMMENT
 =end
-print "This program contains a multiline comment\n".
-# Bariables are defined by name, assign and value
+puts "This program contains a multiline comment"
+
+
+# Variables are defined by name, assign and value
 
 my_num = 25
 
-print my_num
-print "\n".
+puts my_num
+
+
+
 # Constants begin with an uppercase letter. 
 
-Pi = 3.1416
+Debug = 4
+puts Debug
 
 
-print Pi
-print "\n".
+
 # String declaration and use
 
-name = "Ramon"
-print "My name is "+name.
+full_name = "Ramon"
+puts "My name is "+full_name
+
+
 # entero, booleano, cadena
 
 first_arg = true
@@ -43,7 +51,9 @@ puts name
 
 
 
-.
+
+
+
 
 puts "Cycle, if, else" 
 
@@ -59,7 +69,9 @@ while a<11 do
         print " Ramon" 
     end
     a = a + 1
-end.
+end
+
+
 puts "\nWhat is you name ?"
 name = gets.chomp
 
@@ -71,4 +83,6 @@ n = n+1
 # (n.to_s)
 print "\nnext year you will have " 
 print n 
-print "\n".
+print "\n"
+
+

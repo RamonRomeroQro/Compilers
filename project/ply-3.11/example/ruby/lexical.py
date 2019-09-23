@@ -12,8 +12,8 @@ class LA(object):
 		'logic','logicnot','rparen','comment','keywords','append','string','builtinmethod',
 		'range','great','rsquare','lsquare','newline','lflower','rflower','less','begin','break',
 		'else','end','for','if','true','false','return','then_tok','elsif','in','do',
-		'quotes','dollar','commas','bar','name')
-
+		'quotes','dollar','commas','bar','name', "constant" )
+	
 	# Regex rules for simple Tokens
 	t_plus=r'\+'
 	t_minus=r'-'
@@ -36,9 +36,24 @@ class LA(object):
 	t_commas=r'\,'
 	t_bar=r'\|'		
 	t_great=r'\>'
-	t_name= r'[a-zA-Z_][a-zA-Z0-9_]*'
+	t_name= r'[a-z_][a-zA-Z0-9_]*'
+	t_constant=	r'[A-Z]+[a-zA-Z0-9_]*'
+
 
 	# Regex rules with action code
+
+	#Handling single line comments
+	def t_comment(self,t):
+		r'\#[^\n]*'
+		pass
+
+
+	#Handling single line comments
+	def t_comments(self,t):
+		r'=begin+([\n]*[A-Za-z0-9]*[^\S\n\t]*)*=end'
+		pass
+
+
 
 	def t_elsif(self,t):
 		r'elsif'
@@ -119,11 +134,6 @@ class LA(object):
 	    return t
 
 
-	#Handling single line comments
-	def t_comment(self,t):
-		r'\#[^\n]*'
-		pass
-
 	#Tracking Line no.s
 	def t_newline(self,t):
 	    r'\n+'
@@ -157,4 +167,5 @@ code_file=open(f,'r').read()
 l=LA()
 l.build()
 tks=l.tokenize(code_file)
-print(tks)
+for x in tks:
+	print(x)

@@ -1,4 +1,4 @@
 # String declaration and use
 
-name = "Ramon"
-puts "My name is "+name
+full_name = "Ramon"
+puts "My name is "+full_name
