@@ -36,7 +36,7 @@ puts "My name is "+full_name
 
 first_arg = true
 secorn_arg = false
-boolean_eval = (first_arg and secorn_arg)
+boolean_eval = first_arg or secorn_arg
 
 n=0
 n=n+1

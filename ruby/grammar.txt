@@ -1,0 +1,65 @@
+PROGRAM -> BLOCK
+
+BLOCK   -> T STATEMENT T BLOCK	
+	    | T STATEMENT T 
+
+T -> T newline
+
+STATEMENT -> OUTPUT | ASIGN | LOOP | CONDITIONALIFELSE | STATEMENT | epsilon | INPUT
+
+INPUT -> gets.chomp
+       | gets.chomp.to_i
+
+
+OUTPUT -> puts STRING 
+        | print INTEGER
+        | print BOOLEAN
+        | print STRING
+
+ASIGN -> VARIABLEID EQUALS EXPR
+        | VARIABLEID EQUALS STRING
+        | VARIABLEID EQUALS BOOLEAN
+        | CONSTANTID  EQUALS INTEGER
+        | CONSTANTID EQUALS STRING
+        | CONSTANTID EQUALS BOOLEAN
+
+STRING  -> STRING
+        | STRING PLUS STRING
+
+
+LOGIC  -> BOOLEAN and BOOLEAN
+        |  VARIABLEID and VARIABLEID
+        |  LOGICAL and LOGICAL
+        | BOOLEAN or BOOLEAN
+        |  VARIABLEID or VARIABLEID
+        |  LOGICAL or LOGICAL
+
+
+LOOP  ->  while EVALUATION do STATEMENT end
+
+EVALUATION -> EXPR less EXPR
+	    | EXPR equals equals EXPR
+	    | EXPR great EXPR
+	    | EXPR great equals EXPR
+	    | EXPR less equals EXPR
+        | NOT EVALUATION
+
+EXPR -> EXPR plus EXPR
+	| EXPR minus EXPR
+	| EXPR times EXPR
+	| EXPR divide EXPR
+	| EXPR modulo EXPR
+	| VARIABLEID
+	| INTEGER
+
+##boolean_eval = (first_arg and secorn_arg)
+
+
+CONDITIONALIFELSE -> if EVALUATION STATEMENT else STATEMENT end
+                    | if EVALUATION STATEMENT else epsilon end
+
+
+
+
+
+

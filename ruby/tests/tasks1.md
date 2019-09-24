@@ -22,6 +22,8 @@
 ---
 
 También debes crear los siguientes casos de prueba, todos deben definir:
-1. Un programa sencillo con la definición de una variable en el lugar incorrecto y en el orden incorrecto. 2. Un programa sencillo que utiliza una cadena, variable y constante en un lugar que no está permitido. 3. Un programa sencillo con un ciclo definido pero usando una gramática incorrecta.
+1. Un programa sencillo con la definición de una variable en el lugar incorrecto y en el orden incorrecto.
+2. Un programa sencillo que utiliza una cadena, variable y constante en un lugar que no está permitido.
+3. Un programa sencillo con un ciclo definido pero usando una gramática incorrecta.
 Todos los tokens no definidos en la definición formal de tu lenguaje deberán generar un error. Todos los errores contenidos en una entrada deben estar presentes.
 Si alguno de estos requisitos no se aplica a tu lenguaje de programación, prepárate para explicar por qué.
