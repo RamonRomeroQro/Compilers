@@ -5,7 +5,7 @@ class LexicalAnalizer(object):
     '''Class that tokenize input file'''
 
     # List of token identifiers
-    tokens = ('while', 'number', 'plus', 'minus', 'times', 'divide', 'equals', 'lparen',
+    tokens = ('while', 'integer', 'plus', 'minus', 'times', 'divide', 'equals', 'lparen',
               'logic', 'logicnot', 'rparen', 'comment', 'keywords',  'string', 'builtinmethod',
               "gt", "lt", "eq", "ne", "ge", "le", 'newline', 'break',
               'else', 'end', 'if', 'true', 'false', 'do',
