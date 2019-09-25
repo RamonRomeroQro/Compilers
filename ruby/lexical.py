@@ -6,11 +6,18 @@ class LexicalAnalizer(object):
 
     # List of token identifiers
     tokens = ('while', 'number', 'plus', 'minus', 'times', 'divide', 'equals', 'lparen',
-              'logic', 'logicnot', 'rparen', 'comment', 'keywords', 'append', 'string', 'builtinmethod',
+              'logic', 'logicnot', 'rparen', 'comment', 'keywords',  'string', 'builtinmethod',
               "gt", "lt", "eq", "ne", "ge", "le", 'newline', 'break',
               'else', 'end', 'if', 'true', 'false', 'do',
               'quotes', 'identifier', "constant", "modulo", "boolean",
               "input_string", "input_integer", "output_string",  "output")
+
+    # tokens = ('WHILE', 'NUMBER', 'PLUS', 'MINUS', 'TIMES', 'DIVIDE', 'EQUALS',
+    # 'LPAREN', 'LOGIC', 'LOGICNOT', 'RPAREN', 'COMMENT', 'KEYWORDS',
+    # 'STRING', 'BUILTINMETHOD', 'GT', 'LT', 'EQ', 'NE', 'GE', 'LE',
+    # 'NEWLINE', 'BREAK', 'ELSE', 'END', 'IF', 'TRUE', 'FALSE', 'DO',
+    # 'QUOTES', 'IDENTIFIER', 'CONSTANT', 'MODULO', 'BOOLEAN', 'INPUT_STRING',
+    # 'INPUT_INTEGER', 'OUTPUT_STRING', 'OUTPUT')
 
     # Regex rules for simple Tokens
     t_plus = r'\+'

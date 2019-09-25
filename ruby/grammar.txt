@@ -1,41 +1,31 @@
-PROGRAM -> BLOCK
+PROGRAM -> BLOCK           
 
-BLOCK   -> T STATEMENT T BLOCK	
+BLOCK   -> T STATEMENT T BLOCK	        o
 	    | T STATEMENT T 
 
-T -> T newline
+T -> T newline         
 
-STATEMENT -> OUTPUT | ASIGN | LOOP | CONDITIONALIFELSE | STATEMENT | epsilon | INPUT
+STATEMENT -> OUTPUT | ASIGN | LOOP | CONDITIONALIFELSE | STATEMENT  | INPUT
 
 INPUT -> gets.chomp
-       | gets.chomp.to_i
+       | gets.chomp.to_i   
 
 
-OUTPUT -> puts STRING 
+OUTPUT -> puts STRING           
         | print INTEGER
         | print BOOLEAN
         | print STRING
 
 ASIGN -> VARIABLEID EQUALS EXPR
-        | VARIABLEID EQUALS STRING
-        | VARIABLEID EQUALS BOOLEAN
-        | CONSTANTID  EQUALS INTEGER
+        | CONSTANTID EQUALS INTEGER
+        | CONSTANTID EQUALS "TRUE" 
+        | CONSTANTID EQUALS "FALSE" 
         | CONSTANTID EQUALS STRING
-        | CONSTANTID EQUALS BOOLEAN
+        
 
 STRING  -> STRING
         | STRING PLUS STRING
 
-
-LOGIC  -> BOOLEAN and BOOLEAN
-        |  VARIABLEID and VARIABLEID
-        |  LOGICAL and LOGICAL
-        | BOOLEAN or BOOLEAN
-        |  VARIABLEID or VARIABLEID
-        |  LOGICAL or LOGICAL
-
-
-LOOP  ->  while EVALUATION do STATEMENT end
 
 EVALUATION -> EXPR less EXPR
 	    | EXPR equals equals EXPR
@@ -43,20 +33,26 @@ EVALUATION -> EXPR less EXPR
 	    | EXPR great equals EXPR
 	    | EXPR less equals EXPR
         | NOT EVALUATION
+        | EXPR and EXPR
+        | EXPR or EXPR
 
 EXPR -> EXPR plus EXPR
 	| EXPR minus EXPR
 	| EXPR times EXPR
 	| EXPR divide EXPR
 	| EXPR modulo EXPR
-	| VARIABLEID
+    | EVALUATION
 	| INTEGER
+    | STRING
+    | BOOLEAN
+    | VARIABLEID
 
-##boolean_eval = (first_arg and secorn_arg)
+
+LOOP  ->  while EVALUATION do BLOCK end
 
 
-CONDITIONALIFELSE -> if EVALUATION STATEMENT else STATEMENT end
-                    | if EVALUATION STATEMENT else epsilon end
+CONDITIONALIFELSE -> if EVALUATION BLOCK else BLOCK end
+                    | if EVALUATION BLOCK end
 
 
 
