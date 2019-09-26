@@ -16,15 +16,17 @@ tokens=LexicalAnalizer.tokens
 #     ('right', 'LBRACKET')
 # )
 def p_program(p): 
-    '''
-    program : statements
-    '''
+    '''program : statements
+	'''
 
 def p_statements(p): 
-    '''
-    statements : statement 
-                | statements
-    '''
+    '''statements : T statement T statements	
+	| T statement T 
+	'''
+def p_T(p):
+	'''T : T newline
+	|
+	'''
 
 def p_statement(p): 
     '''
@@ -74,7 +76,6 @@ def p_expression(p):
     expression      : math_expression
                     | MINUS math_expression
 		            | relational_expression
-		            | term
     '''
 
 def p_math_expression(p):

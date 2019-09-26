@@ -6,9 +6,9 @@ _tabversion = '3.10'
 
 _lr_method = 'LALR'
 
-_lr_signature = 'AND ASS_OP BOOL DIVIDE DO ELSE END EQ GE GT ID IF INPUT_I INPUT_S INTEGER LE LPAREN LT MINUS MODULO NE NOT OR PLUS PRINT RPAREN SEMICOLON STRING THEN TIMES WHILE newline\n    program : statements\n    \n    statements : statement \n                | statements\n    \n    statement   : var_declaration \n                | if_statement\n                | while_statement\n                | print_statement\n                | input_statement\n    \n    input_statement : INPUT_I\n                    | INPUT_S\n    \n    print_statement : PRINT lit_value SEMICOLON\n                    | PRINT expression SEMICOLON\n                    | PRINT ID SEMICOLON\n    \n    var_declaration : ID ASS_OP lit_value SEMICOLON\n\t\t            | ID ASS_OP expression SEMICOLON\n                    | ID ASS_OP ID SEMICOLON\n                    | ID ASS_OP input_statement SEMICOLON\n    \n    if_statement : IF expression THEN statements END\n\t\t         | IF expression THEN statements ELSE statements END\n    \n    while_statement : WHILE expression DO statements END\n    \n    expression      : math_expression\n                    | MINUS math_expression\n\t\t            | relational_expression\n\t\t            | term\n    \n    math_expression : term PLUS math_expression\n                    | term MINUS math_expression\n                    | term \n    \n    relational_expression : math_expression relational_op math_expression\n                          | NOT math_expression\n    \n    term    : factor TIMES term\n            | factor DIVIDE term\n            | factor MODULO term\n            | factor\n    \n    factor : lit_value\n            | LPAREN expression RPAREN\n            | ID\n    \n    relational_op   : AND \n                    | OR \n                    | GT \n                    | LT \n                    | GE \n                    | LE\n                    | NE\n                    | EQ \n    \n    lit_value   : INTEGER \n                | STRING \n                | BOOL \n    '
+_lr_signature = 'AND ASS_OP BOOL DIVIDE DO ELSE END EQ GE GT ID IF INPUT_I INPUT_S INTEGER LE LPAREN LT MINUS MODULO NE NOT OR PLUS PRINT RPAREN SEMICOLON STRING THEN TIMES WHILE newlineprogram : statements\n\tstatements : T statement T statements\t\n\t| T statement T \n\tT : T newline\n\t|\n\t\n    statement   : var_declaration \n                | if_statement\n                | while_statement\n                | print_statement\n                | input_statement\n    \n    input_statement : INPUT_I\n                    | INPUT_S\n    \n    print_statement : PRINT lit_value SEMICOLON\n                    | PRINT expression SEMICOLON\n                    | PRINT ID SEMICOLON\n    \n    var_declaration : ID ASS_OP lit_value SEMICOLON\n\t\t            | ID ASS_OP expression SEMICOLON\n                    | ID ASS_OP ID SEMICOLON\n                    | ID ASS_OP input_statement SEMICOLON\n    \n    if_statement : IF expression THEN statements END\n\t\t         | IF expression THEN statements ELSE statements END\n    \n    while_statement : WHILE expression DO statements END\n    \n    expression      : math_expression\n                    | MINUS math_expression\n\t\t            | relational_expression\n    \n    math_expression : term PLUS math_expression\n                    | term MINUS math_expression\n                    | term \n    \n    relational_expression : math_expression relational_op math_expression\n                          | NOT math_expression\n    \n    term    : factor TIMES term\n            | factor DIVIDE term\n            | factor MODULO term\n            | factor\n    \n    factor : lit_value\n            | LPAREN expression RPAREN\n            | ID\n    \n    relational_op   : AND \n                    | OR \n                    | GT \n                    | LT \n                    | GE \n                    | LE\n                    | NE\n                    | EQ \n    \n    lit_value   : INTEGER \n                | STRING \n                | BOOL \n    '
     
-_lr_action_items = {'ID':([0,10,11,12,15,18,21,24,37,38,39,40,41,42,43,44,45,46,49,50,52,53,54,56,74,],[9,25,25,32,33,25,25,25,9,25,-37,-38,-39,-40,-41,-42,-43,-44,25,25,25,25,25,9,9,]),'IF':([0,37,56,74,],[10,10,10,10,]),'WHILE':([0,37,56,74,],[11,11,11,11,]),'PRINT':([0,37,56,74,],[12,12,12,12,]),'INPUT_I':([0,15,37,56,74,],[13,13,13,13,13,]),'INPUT_S':([0,15,37,56,74,],[14,14,14,14,14,]),'$end':([1,2,3,4,5,6,7,8,13,14,57,58,59,60,61,62,63,73,75,77,],[0,-1,-2,-4,-5,-6,-7,-8,-9,-10,-11,-12,-13,-16,-14,-15,-17,-18,-20,-19,]),'END':([3,4,5,6,7,8,13,14,57,58,59,60,61,62,63,64,72,73,75,76,77,],[-2,-4,-5,-6,-7,-8,-9,-10,-11,-12,-13,-16,-14,-15,-17,73,75,-18,-20,77,-19,]),'ELSE':([3,4,5,6,7,8,13,14,57,58,59,60,61,62,63,64,73,75,77,],[-2,-4,-5,-6,-7,-8,-9,-10,-11,-12,-13,-16,-14,-15,-17,74,-18,-20,-19,]),'ASS_OP':([9,],[15,]),'MINUS':([10,11,12,15,20,22,23,24,25,26,27,28,30,32,33,34,48,68,69,70,71,],[18,18,18,18,50,-33,-34,18,-36,-45,-46,-47,-34,-36,-36,-34,50,-30,-31,-32,-35,]),'NOT':([10,11,12,15,24,],[21,21,21,21,21,]),'LPAREN':([10,11,12,15,18,21,24,38,39,40,41,42,43,44,45,46,49,50,52,53,54,],[24,24,24,24,24,24,24,24,-37,-38,-39,-40,-41,-42,-43,-44,24,24,24,24,24,]),'INTEGER':([10,11,12,15,18,21,24,38,39,40,41,42,43,44,45,46,49,50,52,53,54,],[26,26,26,26,26,26,26,26,-37,-38,-39,-40,-41,-42,-43,-44,26,26,26,26,26,]),'STRING':([10,11,12,15,18,21,24,38,39,40,41,42,43,44,45,46,49,50,52,53,54,],[27,27,27,27,27,27,27,27,-37,-38,-39,-40,-41,-42,-43,-44,27,27,27,27,27,]),'BOOL':([10,11,12,15,18,21,24,38,39,40,41,42,43,44,45,46,49,50,52,53,54,],[28,28,28,28,28,28,28,28,-37,-38,-39,-40,-41,-42,-43,-44,28,28,28,28,28,]),'SEMICOLON':([13,14,17,19,20,22,23,25,26,27,28,30,31,32,33,34,35,36,47,48,51,65,66,67,68,69,70,71,],[-9,-10,-21,-23,-24,-33,-34,-36,-45,-46,-47,57,58,59,60,61,62,63,-22,-27,-29,-28,-25,-26,-30,-31,-32,-35,]),'THEN':([16,17,19,20,22,23,25,26,27,28,47,48,51,65,66,67,68,69,70,71,],[37,-21,-23,-24,-33,-34,-36,-45,-46,-47,-22,-27,-29,-28,-25,-26,-30,-31,-32,-35,]),'DO':([17,19,20,22,23,25,26,27,28,29,47,48,51,65,66,67,68,69,70,71,],[-21,-23,-24,-33,-34,-36,-45,-46,-47,56,-22,-27,-29,-28,-25,-26,-30,-31,-32,-35,]),'RPAREN':([17,19,20,22,23,25,26,27,28,47,48,51,55,65,66,67,68,69,70,71,],[-21,-23,-24,-33,-34,-36,-45,-46,-47,-22,-27,-29,71,-28,-25,-26,-30,-31,-32,-35,]),'AND':([17,20,22,23,25,26,27,28,30,32,33,34,48,66,67,68,69,70,71,],[39,-27,-33,-34,-36,-45,-46,-47,-34,-36,-36,-34,-27,-25,-26,-30,-31,-32,-35,]),'OR':([17,20,22,23,25,26,27,28,30,32,33,34,48,66,67,68,69,70,71,],[40,-27,-33,-34,-36,-45,-46,-47,-34,-36,-36,-34,-27,-25,-26,-30,-31,-32,-35,]),'GT':([17,20,22,23,25,26,27,28,30,32,33,34,48,66,67,68,69,70,71,],[41,-27,-33,-34,-36,-45,-46,-47,-34,-36,-36,-34,-27,-25,-26,-30,-31,-32,-35,]),'LT':([17,20,22,23,25,26,27,28,30,32,33,34,48,66,67,68,69,70,71,],[42,-27,-33,-34,-36,-45,-46,-47,-34,-36,-36,-34,-27,-25,-26,-30,-31,-32,-35,]),'GE':([17,20,22,23,25,26,27,28,30,32,33,34,48,66,67,68,69,70,71,],[43,-27,-33,-34,-36,-45,-46,-47,-34,-36,-36,-34,-27,-25,-26,-30,-31,-32,-35,]),'LE':([17,20,22,23,25,26,27,28,30,32,33,34,48,66,67,68,69,70,71,],[44,-27,-33,-34,-36,-45,-46,-47,-34,-36,-36,-34,-27,-25,-26,-30,-31,-32,-35,]),'NE':([17,20,22,23,25,26,27,28,30,32,33,34,48,66,67,68,69,70,71,],[45,-27,-33,-34,-36,-45,-46,-47,-34,-36,-36,-34,-27,-25,-26,-30,-31,-32,-35,]),'EQ':([17,20,22,23,25,26,27,28,30,32,33,34,48,66,67,68,69,70,71,],[46,-27,-33,-34,-36,-45,-46,-47,-34,-36,-36,-34,-27,-25,-26,-30,-31,-32,-35,]),'PLUS':([20,22,23,25,26,27,28,30,32,33,34,48,68,69,70,71,],[49,-33,-34,-36,-45,-46,-47,-34,-36,-36,-34,49,-30,-31,-32,-35,]),'TIMES':([22,23,25,26,27,28,30,32,33,34,71,],[52,-34,-36,-45,-46,-47,-34,-36,-36,-34,-35,]),'DIVIDE':([22,23,25,26,27,28,30,32,33,34,71,],[53,-34,-36,-45,-46,-47,-34,-36,-36,-34,-35,]),'MODULO':([22,23,25,26,27,28,30,32,33,34,71,],[54,-34,-36,-45,-46,-47,-34,-36,-36,-34,-35,]),}
+_lr_action_items = {'newline':([0,3,4,5,6,7,8,9,10,15,16,17,41,59,60,61,62,63,64,65,66,76,77,78,80,],[-5,5,-5,-4,-6,-7,-8,-9,-10,-11,-12,5,-5,-5,-13,-14,-15,-18,-16,-17,-19,-20,-5,-22,-21,]),'ID':([0,3,4,5,6,7,8,9,10,12,13,14,15,16,17,18,21,24,27,41,42,43,44,45,46,47,48,49,50,52,53,55,56,57,59,60,61,62,63,64,65,66,76,77,78,80,],[-5,11,-5,-4,-6,-7,-8,-9,-10,28,28,35,-11,-12,-5,37,28,28,28,-5,28,-38,-39,-40,-41,-42,-43,-44,-45,28,28,28,28,28,-5,-13,-14,-15,-18,-16,-17,-19,-20,-5,-22,-21,]),'IF':([0,3,4,5,6,7,8,9,10,15,16,17,41,59,60,61,62,63,64,65,66,76,77,78,80,],[-5,12,-5,-4,-6,-7,-8,-9,-10,-11,-12,-5,-5,-5,-13,-14,-15,-18,-16,-17,-19,-20,-5,-22,-21,]),'WHILE':([0,3,4,5,6,7,8,9,10,15,16,17,41,59,60,61,62,63,64,65,66,76,77,78,80,],[-5,13,-5,-4,-6,-7,-8,-9,-10,-11,-12,-5,-5,-5,-13,-14,-15,-18,-16,-17,-19,-20,-5,-22,-21,]),'PRINT':([0,3,4,5,6,7,8,9,10,15,16,17,41,59,60,61,62,63,64,65,66,76,77,78,80,],[-5,14,-5,-4,-6,-7,-8,-9,-10,-11,-12,-5,-5,-5,-13,-14,-15,-18,-16,-17,-19,-20,-5,-22,-21,]),'INPUT_I':([0,3,4,5,6,7,8,9,10,15,16,17,18,41,59,60,61,62,63,64,65,66,76,77,78,80,],[-5,15,-5,-4,-6,-7,-8,-9,-10,-11,-12,-5,15,-5,-5,-13,-14,-15,-18,-16,-17,-19,-20,-5,-22,-21,]),'INPUT_S':([0,3,4,5,6,7,8,9,10,15,16,17,18,41,59,60,61,62,63,64,65,66,76,77,78,80,],[-5,16,-5,-4,-6,-7,-8,-9,-10,-11,-12,-5,16,-5,-5,-13,-14,-15,-18,-16,-17,-19,-20,-5,-22,-21,]),'$end':([1,2,4,5,6,7,8,9,10,15,16,17,36,60,61,62,63,64,65,66,76,78,80,],[0,-1,-5,-4,-6,-7,-8,-9,-10,-11,-12,-3,-2,-13,-14,-15,-18,-16,-17,-19,-20,-22,-21,]),'END':([4,5,6,7,8,9,10,15,16,17,36,60,61,62,63,64,65,66,67,75,76,78,79,80,],[-5,-4,-6,-7,-8,-9,-10,-11,-12,-3,-2,-13,-14,-15,-18,-16,-17,-19,76,78,-20,-22,80,-21,]),'ELSE':([4,5,6,7,8,9,10,15,16,17,36,60,61,62,63,64,65,66,67,76,78,80,],[-5,-4,-6,-7,-8,-9,-10,-11,-12,-3,-2,-13,-14,-15,-18,-16,-17,-19,77,-20,-22,-21,]),'ASS_OP':([11,],[18,]),'MINUS':([12,13,14,18,23,25,26,27,28,29,30,31,33,35,37,38,71,72,73,74,],[21,21,21,21,53,-34,-35,21,-37,-46,-47,-48,-35,-37,-37,-35,-31,-32,-33,-36,]),'NOT':([12,13,14,18,27,],[24,24,24,24,24,]),'LPAREN':([12,13,14,18,21,24,27,42,43,44,45,46,47,48,49,50,52,53,55,56,57,],[27,27,27,27,27,27,27,27,-38,-39,-40,-41,-42,-43,-44,-45,27,27,27,27,27,]),'INTEGER':([12,13,14,18,21,24,27,42,43,44,45,46,47,48,49,50,52,53,55,56,57,],[29,29,29,29,29,29,29,29,-38,-39,-40,-41,-42,-43,-44,-45,29,29,29,29,29,]),'STRING':([12,13,14,18,21,24,27,42,43,44,45,46,47,48,49,50,52,53,55,56,57,],[30,30,30,30,30,30,30,30,-38,-39,-40,-41,-42,-43,-44,-45,30,30,30,30,30,]),'BOOL':([12,13,14,18,21,24,27,42,43,44,45,46,47,48,49,50,52,53,55,56,57,],[31,31,31,31,31,31,31,31,-38,-39,-40,-41,-42,-43,-44,-45,31,31,31,31,31,]),'SEMICOLON':([15,16,20,22,23,25,26,28,29,30,31,33,34,35,37,38,39,40,51,54,68,69,70,71,72,73,74,],[-11,-12,-23,-25,-28,-34,-35,-37,-46,-47,-48,60,61,62,63,64,65,66,-24,-30,-29,-26,-27,-31,-32,-33,-36,]),'THEN':([19,20,22,23,25,26,28,29,30,31,51,54,68,69,70,71,72,73,74,],[41,-23,-25,-28,-34,-35,-37,-46,-47,-48,-24,-30,-29,-26,-27,-31,-32,-33,-36,]),'DO':([20,22,23,25,26,28,29,30,31,32,51,54,68,69,70,71,72,73,74,],[-23,-25,-28,-34,-35,-37,-46,-47,-48,59,-24,-30,-29,-26,-27,-31,-32,-33,-36,]),'RPAREN':([20,22,23,25,26,28,29,30,31,51,54,58,68,69,70,71,72,73,74,],[-23,-25,-28,-34,-35,-37,-46,-47,-48,-24,-30,74,-29,-26,-27,-31,-32,-33,-36,]),'AND':([20,23,25,26,28,29,30,31,33,35,37,38,69,70,71,72,73,74,],[43,-28,-34,-35,-37,-46,-47,-48,-35,-37,-37,-35,-26,-27,-31,-32,-33,-36,]),'OR':([20,23,25,26,28,29,30,31,33,35,37,38,69,70,71,72,73,74,],[44,-28,-34,-35,-37,-46,-47,-48,-35,-37,-37,-35,-26,-27,-31,-32,-33,-36,]),'GT':([20,23,25,26,28,29,30,31,33,35,37,38,69,70,71,72,73,74,],[45,-28,-34,-35,-37,-46,-47,-48,-35,-37,-37,-35,-26,-27,-31,-32,-33,-36,]),'LT':([20,23,25,26,28,29,30,31,33,35,37,38,69,70,71,72,73,74,],[46,-28,-34,-35,-37,-46,-47,-48,-35,-37,-37,-35,-26,-27,-31,-32,-33,-36,]),'GE':([20,23,25,26,28,29,30,31,33,35,37,38,69,70,71,72,73,74,],[47,-28,-34,-35,-37,-46,-47,-48,-35,-37,-37,-35,-26,-27,-31,-32,-33,-36,]),'LE':([20,23,25,26,28,29,30,31,33,35,37,38,69,70,71,72,73,74,],[48,-28,-34,-35,-37,-46,-47,-48,-35,-37,-37,-35,-26,-27,-31,-32,-33,-36,]),'NE':([20,23,25,26,28,29,30,31,33,35,37,38,69,70,71,72,73,74,],[49,-28,-34,-35,-37,-46,-47,-48,-35,-37,-37,-35,-26,-27,-31,-32,-33,-36,]),'EQ':([20,23,25,26,28,29,30,31,33,35,37,38,69,70,71,72,73,74,],[50,-28,-34,-35,-37,-46,-47,-48,-35,-37,-37,-35,-26,-27,-31,-32,-33,-36,]),'PLUS':([23,25,26,28,29,30,31,33,35,37,38,71,72,73,74,],[52,-34,-35,-37,-46,-47,-48,-35,-37,-37,-35,-31,-32,-33,-36,]),'TIMES':([25,26,28,29,30,31,33,35,37,38,74,],[55,-35,-37,-46,-47,-48,-35,-37,-37,-35,-36,]),'DIVIDE':([25,26,28,29,30,31,33,35,37,38,74,],[56,-35,-37,-46,-47,-48,-35,-37,-37,-35,-36,]),'MODULO':([25,26,28,29,30,31,33,35,37,38,74,],[57,-35,-37,-46,-47,-48,-35,-37,-37,-35,-36,]),}
 
 _lr_action = {}
 for _k, _v in _lr_action_items.items():
@@ -17,7 +17,7 @@ for _k, _v in _lr_action_items.items():
       _lr_action[_x][_k] = _y
 del _lr_action_items
 
-_lr_goto_items = {'program':([0,],[1,]),'statements':([0,37,56,74,],[2,64,72,76,]),'statement':([0,37,56,74,],[3,3,3,3,]),'var_declaration':([0,37,56,74,],[4,4,4,4,]),'if_statement':([0,37,56,74,],[5,5,5,5,]),'while_statement':([0,37,56,74,],[6,6,6,6,]),'print_statement':([0,37,56,74,],[7,7,7,7,]),'input_statement':([0,15,37,56,74,],[8,36,8,8,8,]),'expression':([10,11,12,15,24,],[16,29,31,35,55,]),'math_expression':([10,11,12,15,18,21,24,38,49,50,],[17,17,17,17,47,51,17,65,66,67,]),'relational_expression':([10,11,12,15,24,],[19,19,19,19,19,]),'term':([10,11,12,15,18,21,24,38,49,50,52,53,54,],[20,20,20,20,48,48,20,48,48,48,68,69,70,]),'factor':([10,11,12,15,18,21,24,38,49,50,52,53,54,],[22,22,22,22,22,22,22,22,22,22,22,22,22,]),'lit_value':([10,11,12,15,18,21,24,38,49,50,52,53,54,],[23,23,30,34,23,23,23,23,23,23,23,23,23,]),'relational_op':([17,],[38,]),}
+_lr_goto_items = {'program':([0,],[1,]),'statements':([0,17,41,59,77,],[2,36,67,75,79,]),'T':([0,4,17,41,59,77,],[3,17,3,3,3,3,]),'statement':([3,],[4,]),'var_declaration':([3,],[6,]),'if_statement':([3,],[7,]),'while_statement':([3,],[8,]),'print_statement':([3,],[9,]),'input_statement':([3,18,],[10,40,]),'expression':([12,13,14,18,27,],[19,32,34,39,58,]),'math_expression':([12,13,14,18,21,24,27,42,52,53,],[20,20,20,20,51,54,20,68,69,70,]),'relational_expression':([12,13,14,18,27,],[22,22,22,22,22,]),'term':([12,13,14,18,21,24,27,42,52,53,55,56,57,],[23,23,23,23,23,23,23,23,23,23,71,72,73,]),'factor':([12,13,14,18,21,24,27,42,52,53,55,56,57,],[25,25,25,25,25,25,25,25,25,25,25,25,25,]),'lit_value':([12,13,14,18,21,24,27,42,52,53,55,56,57,],[26,26,33,38,26,26,26,26,26,26,26,26,26,]),'relational_op':([20,],[42,]),}
 
 _lr_goto = {}
 for _k, _v in _lr_goto_items.items():
@@ -27,51 +27,52 @@ for _k, _v in _lr_goto_items.items():
 del _lr_goto_items
 _lr_productions = [
   ("S' -> program","S'",1,None,None,None),
-  ('program -> statements','program',1,'p_program','parser2.py',20),
-  ('statements -> statement','statements',1,'p_statements','parser2.py',25),
-  ('statements -> statements','statements',1,'p_statements','parser2.py',26),
-  ('statement -> var_declaration','statement',1,'p_statement','parser2.py',31),
-  ('statement -> if_statement','statement',1,'p_statement','parser2.py',32),
-  ('statement -> while_statement','statement',1,'p_statement','parser2.py',33),
-  ('statement -> print_statement','statement',1,'p_statement','parser2.py',34),
-  ('statement -> input_statement','statement',1,'p_statement','parser2.py',35),
-  ('input_statement -> INPUT_I','input_statement',1,'p_input_statement','parser2.py',41),
-  ('input_statement -> INPUT_S','input_statement',1,'p_input_statement','parser2.py',42),
-  ('print_statement -> PRINT lit_value SEMICOLON','print_statement',3,'p_print_statement','parser2.py',47),
-  ('print_statement -> PRINT expression SEMICOLON','print_statement',3,'p_print_statement','parser2.py',48),
-  ('print_statement -> PRINT ID SEMICOLON','print_statement',3,'p_print_statement','parser2.py',49),
-  ('var_declaration -> ID ASS_OP lit_value SEMICOLON','var_declaration',4,'p_var_declaration','parser2.py',54),
-  ('var_declaration -> ID ASS_OP expression SEMICOLON','var_declaration',4,'p_var_declaration','parser2.py',55),
-  ('var_declaration -> ID ASS_OP ID SEMICOLON','var_declaration',4,'p_var_declaration','parser2.py',56),
-  ('var_declaration -> ID ASS_OP input_statement SEMICOLON','var_declaration',4,'p_var_declaration','parser2.py',57),
-  ('if_statement -> IF expression THEN statements END','if_statement',5,'p_if_statement','parser2.py',62),
-  ('if_statement -> IF expression THEN statements ELSE statements END','if_statement',7,'p_if_statement','parser2.py',63),
-  ('while_statement -> WHILE expression DO statements END','while_statement',5,'p_while_statement','parser2.py',69),
-  ('expression -> math_expression','expression',1,'p_expression','parser2.py',74),
-  ('expression -> MINUS math_expression','expression',2,'p_expression','parser2.py',75),
-  ('expression -> relational_expression','expression',1,'p_expression','parser2.py',76),
-  ('expression -> term','expression',1,'p_expression','parser2.py',77),
-  ('math_expression -> term PLUS math_expression','math_expression',3,'p_math_expression','parser2.py',82),
-  ('math_expression -> term MINUS math_expression','math_expression',3,'p_math_expression','parser2.py',83),
-  ('math_expression -> term','math_expression',1,'p_math_expression','parser2.py',84),
-  ('relational_expression -> math_expression relational_op math_expression','relational_expression',3,'p_relational_expression','parser2.py',89),
-  ('relational_expression -> NOT math_expression','relational_expression',2,'p_relational_expression','parser2.py',90),
-  ('term -> factor TIMES term','term',3,'p_term','parser2.py',95),
-  ('term -> factor DIVIDE term','term',3,'p_term','parser2.py',96),
-  ('term -> factor MODULO term','term',3,'p_term','parser2.py',97),
-  ('term -> factor','term',1,'p_term','parser2.py',98),
-  ('factor -> lit_value','factor',1,'p_factor','parser2.py',104),
-  ('factor -> LPAREN expression RPAREN','factor',3,'p_factor','parser2.py',105),
-  ('factor -> ID','factor',1,'p_factor','parser2.py',106),
-  ('relational_op -> AND','relational_op',1,'p_relational_op','parser2.py',111),
-  ('relational_op -> OR','relational_op',1,'p_relational_op','parser2.py',112),
-  ('relational_op -> GT','relational_op',1,'p_relational_op','parser2.py',113),
-  ('relational_op -> LT','relational_op',1,'p_relational_op','parser2.py',114),
-  ('relational_op -> GE','relational_op',1,'p_relational_op','parser2.py',115),
-  ('relational_op -> LE','relational_op',1,'p_relational_op','parser2.py',116),
-  ('relational_op -> NE','relational_op',1,'p_relational_op','parser2.py',117),
-  ('relational_op -> EQ','relational_op',1,'p_relational_op','parser2.py',118),
-  ('lit_value -> INTEGER','lit_value',1,'p_lit_value','parser2.py',122),
-  ('lit_value -> STRING','lit_value',1,'p_lit_value','parser2.py',123),
-  ('lit_value -> BOOL','lit_value',1,'p_lit_value','parser2.py',124),
+  ('program -> statements','program',1,'p_program','parser2.py',19),
+  ('statements -> T statement T statements','statements',4,'p_statements','parser2.py',23),
+  ('statements -> T statement T','statements',3,'p_statements','parser2.py',24),
+  ('T -> T newline','T',2,'p_T','parser2.py',27),
+  ('T -> <empty>','T',0,'p_T','parser2.py',28),
+  ('statement -> var_declaration','statement',1,'p_statement','parser2.py',33),
+  ('statement -> if_statement','statement',1,'p_statement','parser2.py',34),
+  ('statement -> while_statement','statement',1,'p_statement','parser2.py',35),
+  ('statement -> print_statement','statement',1,'p_statement','parser2.py',36),
+  ('statement -> input_statement','statement',1,'p_statement','parser2.py',37),
+  ('input_statement -> INPUT_I','input_statement',1,'p_input_statement','parser2.py',43),
+  ('input_statement -> INPUT_S','input_statement',1,'p_input_statement','parser2.py',44),
+  ('print_statement -> PRINT lit_value SEMICOLON','print_statement',3,'p_print_statement','parser2.py',49),
+  ('print_statement -> PRINT expression SEMICOLON','print_statement',3,'p_print_statement','parser2.py',50),
+  ('print_statement -> PRINT ID SEMICOLON','print_statement',3,'p_print_statement','parser2.py',51),
+  ('var_declaration -> ID ASS_OP lit_value SEMICOLON','var_declaration',4,'p_var_declaration','parser2.py',56),
+  ('var_declaration -> ID ASS_OP expression SEMICOLON','var_declaration',4,'p_var_declaration','parser2.py',57),
+  ('var_declaration -> ID ASS_OP ID SEMICOLON','var_declaration',4,'p_var_declaration','parser2.py',58),
+  ('var_declaration -> ID ASS_OP input_statement SEMICOLON','var_declaration',4,'p_var_declaration','parser2.py',59),
+  ('if_statement -> IF expression THEN statements END','if_statement',5,'p_if_statement','parser2.py',64),
+  ('if_statement -> IF expression THEN statements ELSE statements END','if_statement',7,'p_if_statement','parser2.py',65),
+  ('while_statement -> WHILE expression DO statements END','while_statement',5,'p_while_statement','parser2.py',71),
+  ('expression -> math_expression','expression',1,'p_expression','parser2.py',76),
+  ('expression -> MINUS math_expression','expression',2,'p_expression','parser2.py',77),
+  ('expression -> relational_expression','expression',1,'p_expression','parser2.py',78),
+  ('math_expression -> term PLUS math_expression','math_expression',3,'p_math_expression','parser2.py',83),
+  ('math_expression -> term MINUS math_expression','math_expression',3,'p_math_expression','parser2.py',84),
+  ('math_expression -> term','math_expression',1,'p_math_expression','parser2.py',85),
+  ('relational_expression -> math_expression relational_op math_expression','relational_expression',3,'p_relational_expression','parser2.py',90),
+  ('relational_expression -> NOT math_expression','relational_expression',2,'p_relational_expression','parser2.py',91),
+  ('term -> factor TIMES term','term',3,'p_term','parser2.py',96),
+  ('term -> factor DIVIDE term','term',3,'p_term','parser2.py',97),
+  ('term -> factor MODULO term','term',3,'p_term','parser2.py',98),
+  ('term -> factor','term',1,'p_term','parser2.py',99),
+  ('factor -> lit_value','factor',1,'p_factor','parser2.py',105),
+  ('factor -> LPAREN expression RPAREN','factor',3,'p_factor','parser2.py',106),
+  ('factor -> ID','factor',1,'p_factor','parser2.py',107),
+  ('relational_op -> AND','relational_op',1,'p_relational_op','parser2.py',112),
+  ('relational_op -> OR','relational_op',1,'p_relational_op','parser2.py',113),
+  ('relational_op -> GT','relational_op',1,'p_relational_op','parser2.py',114),
+  ('relational_op -> LT','relational_op',1,'p_relational_op','parser2.py',115),
+  ('relational_op -> GE','relational_op',1,'p_relational_op','parser2.py',116),
+  ('relational_op -> LE','relational_op',1,'p_relational_op','parser2.py',117),
+  ('relational_op -> NE','relational_op',1,'p_relational_op','parser2.py',118),
+  ('relational_op -> EQ','relational_op',1,'p_relational_op','parser2.py',119),
+  ('lit_value -> INTEGER','lit_value',1,'p_lit_value','parser2.py',123),
+  ('lit_value -> STRING','lit_value',1,'p_lit_value','parser2.py',124),
+  ('lit_value -> BOOL','lit_value',1,'p_lit_value','parser2.py',125),
 ]
