@@ -1,3 +1,3 @@
 # This is a
 # comment
-puts "This program contains a single word/line comment"
+print "This program contains a single word/line comment"

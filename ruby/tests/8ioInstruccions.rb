@@ -1,9 +1,9 @@
-puts "\nWhat is you name ?"
+print "\nWhat is you name ?"
 name = gets.chomp
 
-puts "Hola! "+ name 
+print "Hola! "+ name 
 
-puts "Age?"
+print "Age?"
 n = gets.chomp.to_i
 n = n+1
 # (n.to_s)

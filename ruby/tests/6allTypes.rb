@@ -9,10 +9,10 @@ n=n+1
 
 name = "Ramon " + "Romero"
 
-puts "Bool, int and string" 
-puts boolean_eval 
-puts n 
-puts name
+print "Bool, int and string" 
+print boolean_eval 
+print n 
+print name
 
 
 

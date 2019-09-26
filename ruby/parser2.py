@@ -4,121 +4,125 @@ import logging
 from lexical import LexicalAnalizer
 tokens=LexicalAnalizer.tokens
 
-def p_PROGRAM(p):
+# precedence = (
+#     ('left', 'OP_AND', 'OP_OR'),
+#     ('left', 'OP_ASSIGN'),
+#     ('nonassoc', 'OP_COMPARE'),
+#     ('left', 'OP_MORE_OR_EQUAL', 'OP_MORE_THAN',
+#      'OP_LESS_OR_EQUAL', 'OP_LESS_THAN'),
+#     ('left', 'OP_PLUS', 'OP_MINUS', 'OP_MOD'),
+#     ('left', 'OP_MULT', 'OP_DIVIDE', 'OP_POWER'),
+#     ('right', 'OP_NOT'),
+#     ('right', 'LBRACKET')
+# )
+def p_program(p): 
     '''
-    PROGRAM         : COMPSTMT
+    program : statements
     '''
-    pass
 
-def p_COMPSTMT(p):
+def p_statements(p): 
     '''
-    COMPSTMT        : STMT (TERM EXPR)* TERM
+    statements : statement 
+                | statements
     '''
-    pass
 
-def p_STMT(p):
+def p_statement(p): 
     '''
-    STMT            : EXPR
+    statement   : var_declaration 
+                | if_statement
+                | while_statement
+                | print_statement
+                | input_statement
     '''
-    pass
-
-def p_EXPR(p):
-    '''
-    EXPR        : EXPR and EXPR
-                | EXPR or EXPR
-                | not EXPR
-                | ARG
-    '''
-    pass
-
-def p_ARG(p):
-    '''
-    ARG         : LHS `=' ARG
-                | ARG `+' ARG
-                | ARG `-' ARG
-                | ARG `*' ARG
-                | ARG `/' ARG
-                | ARG `%' ARG
-                | ARG `**' ARG
-                | ARG `>' ARG
-                | ARG `>=' ARG
-                | ARG `<' ARG
-                | ARG `<=' ARG
-                | ARG `==' ARG
-                | ARG `!=' ARG
-                | `!' ARG
-                | PRIMARY
-    '''
-    pass
-
-
-
-def p_PRIMARY(p):
-    '''
-    PRIMARY     : `(' COMPSTMT `)'
-                | LITERAL
-                | VARIABLE
-                | if EXPR THEN
-                  COMPSTMT
-                  else COMPSTMT
-                  end
-                | if EXPR THEN
-                  COMPSTMT
-                  end
-                | while EXPR TERM COMPSTMT end
-
-    '''
-    pass
-
-def p_LHS(p):
-    '''
-    LHS             : VARNAME
-    '''
-    pass
-
-def p_VARIABLE(p):
-    '''
-    VARIABLE    : VARNAME
-                | true
-                | false
-    '''
-    pass
-
-
-
-def p_LITERAL(p):
-    '''
-    LITERAL     : numeric
-                | STRING
-    '''
-    pass
     
-def p_STRING(p):
-    '''
-    STRING          : LITERAL_STRING+
-    '''
-    pass
 
-def p_TERM(p):
+def p_input_statement(p):
     '''
-    TERM            : `;'
-                    | `\n'
+    input_statement : INPUT_I
+                    | INPUT_S
     '''
-    pass
-
-def p_VARNAME(p):
+ 
+def p_print_statement(p): 
     '''
-    VARNAME         : identifier
-    '''
-    pass
-
-def p_LITERAL_STRING(p):
-    '''
-    LITERAL_STRING  : `"' any_char* `"'
-                    | `'' any_char* `''
-                    | ``' any_char* ``'
+    print_statement : PRINT lit_value SEMICOLON
+                    | PRINT expression SEMICOLON
+                    | PRINT ID SEMICOLON
     '''
 
+def p_var_declaration(p): 
+    '''
+    var_declaration : ID ASS_OP lit_value SEMICOLON
+		            | ID ASS_OP expression SEMICOLON
+                    | ID ASS_OP ID SEMICOLON
+                    | ID ASS_OP input_statement SEMICOLON
+    '''
+
+def p_if_statement(p): 
+    '''
+    if_statement : IF expression THEN statements END
+		         | IF expression THEN statements ELSE statements END
+    '''
+    
+
+def p_while_statement(p): 
+    '''
+    while_statement : WHILE expression DO statements END
+    '''
+
+def p_expression(p): 
+    '''
+    expression      : math_expression
+                    | MINUS math_expression
+		            | relational_expression
+		            | term
+    '''
+
+def p_math_expression(p):
+    '''
+    math_expression : term PLUS math_expression
+                    | term MINUS math_expression
+                    | term 
+    '''
+
+def p_relational_expression(p):
+    '''
+    relational_expression : math_expression relational_op math_expression
+                          | NOT math_expression
+    '''
+
+def p_term(p): 
+    '''
+    term    : factor TIMES term
+            | factor DIVIDE term
+            | factor MODULO term
+            | factor
+    '''
+
+
+def p_factor(p): 
+    '''
+    factor : lit_value
+            | LPAREN expression RPAREN
+            | ID
+    '''
+
+def p_relational_op(p): 
+    '''
+    relational_op   : AND 
+                    | OR 
+                    | GT 
+                    | LT 
+                    | GE 
+                    | LE
+                    | NE
+                    | EQ 
+    '''
+def p_lit_value(p):
+    '''
+    lit_value   : INTEGER 
+                | STRING 
+                | BOOL 
+    '''
 
 def p_error(p):
     print("Syntax error in input!")
@@ -128,7 +132,7 @@ parser = yacc.yacc()
 
 while True:
    try:
-       s = open("./tests/9.rb", 'r')
+       s = open("./tests/7cycleCondition.rb", 'r')
    except EOFError:
        break
    if not s: continue

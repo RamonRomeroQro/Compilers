@@ -1,5 +1,5 @@
 import sys
-from .lexical import LexicalAnalizer
+from lexical import LexicalAnalizer
 
 
 def main(argv):

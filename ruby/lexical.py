@@ -2,43 +2,72 @@ import ply.lex as lex
 import sys
 
 class LexicalAnalizer(object):
-    '''Class that tokenize input file'''
 
     # List of token identifiers
-    tokens = ('while', 'integer', 'plus', 'minus', 'times', 'divide', 'equals', 'lparen',
-              'logic', 'logicnot', 'rparen', 'comment', 'keywords',  'string', 'builtinmethod',
-              "gt", "lt", "eq", "ne", "ge", "le", 'newline', 'break',
-              'else', 'end', 'if', 'true', 'false', 'do',
-              'quotes', 'identifier', "constant", "modulo", "boolean",
-              "input_string", "input_integer", "output_string",  "output")
+    tokens = ('GT', 'LE', 'PRINT', 'INTEGER', 'END',
+            'GE', 'LPAREN', 'STRING', 'TIMES', 'OR',
+            'NE', 'DIVIDE', 'AND', 'IF', 
+            'MODULO', 'BOOL', 'DO', 'ELSE', 'MINUS',
+            'SEMICOLON', 'EQ', 'INPUT_S', 'LT', 
+            'THEN', 'RPAREN', 'PLUS', 'WHILE', 'NOT',
+            'ID', 'ASS_OP', 'INPUT_I', 'newline')
+    
 
-    # tokens = ('WHILE', 'NUMBER', 'PLUS', 'MINUS', 'TIMES', 'DIVIDE', 'EQUALS',
-    # 'LPAREN', 'LOGIC', 'LOGICNOT', 'RPAREN', 'COMMENT', 'KEYWORDS',
-    # 'STRING', 'BUILTINMETHOD', 'GT', 'LT', 'EQ', 'NE', 'GE', 'LE',
-    # 'NEWLINE', 'BREAK', 'ELSE', 'END', 'IF', 'TRUE', 'FALSE', 'DO',
-    # 'QUOTES', 'IDENTIFIER', 'CONSTANT', 'MODULO', 'BOOLEAN', 'INPUT_STRING',
-    # 'INPUT_INTEGER', 'OUTPUT_STRING', 'OUTPUT')
+    #t_ELSE= r'else'
+    #t_IF= r'if'
+    t_DIVIDE= r'\/'
+    t_TIMES= r'\*'
+    t_RPAREN= r'\('
+    #t_BOOL= r'true|false'
+    t_MINUS= r'\-'
+    t_ID= r'[a-z_][a-zA-Z0-9_]*'
+    #t_INPUT_S= r'gets.chomp'
+    t_GE= r'\>\='
+    t_NE= r'\!\='
+    t_EQ= r'\=\='
+    t_LT= r'\<'
+    #t_THEN= r'then'
+    t_LE= r'\<\='
+    t_AND= r'and'
+    t_ASS_OP= r'\='
+    #t_DO= r'do'
+    #t_WHILE= r'while'
+    #t_INPUT_I= r'gets.chomp.to_i'
+    t_LPAREN= r'\('
+    t_OR= r'or'
+    t_GT= r'\>\t'
+    t_MODULO= r'\%'
+    #t_END= r'end'
+    t_PLUS= r'\+'
+    t_SEMICOLON= r'\;'
+    t_NOT= r'not'
+    t_ignore='[ \t]'
 
-    # Regex rules for simple Tokens
-    t_plus = r'\+'
-    t_modulo = r'\%'
-    t_minus = r'-'
-    t_times = r'\*'
-    t_divide = r'/'
-    t_lparen = r'\('
-    t_rparen = r'\)'
-    t_equals = r'='
-    t_lt = r'\<'
-    t_gt = r'\>'
-    t_eq = r'\=\='
-    t_ne = r'\!\='
-    t_ge = r'\>\='
-    t_le = r'\<\='
-    t_ignore = '[ \t]'
-    t_quotes = r'\"'
-    t_identifier = r'[a-z_][a-zA-Z0-9_]*'
-    t_constant = r'[A-Z]+[a-zA-Z0-9_]*'
+    
+    def t_WHILE(self, t):
+        r'while'
+        return t
 
+
+    def t_ELSE(self, t):
+        r'else'
+        return t
+
+    def t_THEN(self, t):
+        r'then'
+        return t
+
+    def t_IF(self, t):
+        r'if'
+        return t
+
+    def t_END(self, t):
+        r'end'
+        return t
+
+    def t_DO(self, t):
+        r'do'
+        return t
     def t_comment(self, t):
         r'\#[^\n]*'
         pass
@@ -47,68 +76,28 @@ class LexicalAnalizer(object):
         r'=begin+([\n]*[A-Za-z0-9]*[^\S\n\t]*)*=end'
         pass
 
-    def t_while(self, t):
-        r'while'
-        return t
-
-    def t_break(self, t):
-        r'break'
-        return t
-
-    def t_else(self, t):
-        r'else'
-        return t
-
-    def t_end(self, t):
-        r'end'
-        return t
-
-    def t_for(self, t):
-        r'for'
-        return t
-
-    def t_if(self, t):
-        r'if'
-        return t
-
-    def t_boolean(self, t):
+  
+    def t_BOOL(self, t):
         r'true|false'
         return t
 
-    def t_do(self, t):
-        r'do'
-        return t
-
-    def t_logic(self, t):
-        r'or|and'
-        return t
-
-    def t_logicnot(self, t):
-        r'not'
-        return t
-
-    def t_number(self, t):
+    def t_INTEGER(self, t):
         r'\d+'  
         t.value = int(t.value)
         return t
-
-    def t_input_string(self, t):
+        
+    def t_INPUT_I(self, t):
+        r'gets.chomp.to_i'
+        return t
+    def t_INPUT_S(self, t):
         r'gets.chomp' 
         return t
 
-    def t_input_integer(self, t):
-        r'gets.chomp.to_i'
-        return t
-
-    def t_output_string(self, t):
-        r'puts'  
-        return t
-
-    def t_output(self, t):
+    def t_PRINT(self, t):
         r'print'
         return t
 
-    def t_string(self, t):
+    def t_STRING(self, t):
         r'\"[^"]*\"'  
         return t
 
@@ -118,16 +107,13 @@ class LexicalAnalizer(object):
         t.lexer.lineno += len(t.value)
         return t
 
-    # Error handler
     def t_error(self, t):
         print("Illegal character '%s'" % t.value[0])
         t.lexer.skip(1)
 
-    # Building The Lexer
     def build(self, **kwargs):
         self.lexer = lex.lex(module=self, **kwargs)
 
-    # Generating tokens
     def tokenize(self, data):
         tkns = []
         self.lexer.input(data)

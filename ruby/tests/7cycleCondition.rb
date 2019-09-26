@@ -1,5 +1,5 @@
 
-puts "Cycle, if, else" 
+print "Cycle, if, else" 
 
 a=1
 while a<11 do

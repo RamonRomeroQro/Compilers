@@ -2,4 +2,4 @@
 
 my_num = 25
 
-puts my_num
+print my_num
