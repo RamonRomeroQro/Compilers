@@ -1,7 +1,7 @@
 
 import ply.yacc as yacc
 import logging
-from lexical import LexicalAnalizer
+from lexer import LexicalAnalizer
 tokens=LexicalAnalizer.tokens
 
 # precedence = (
@@ -131,13 +131,26 @@ def p_error(p):
 # Build the parser
 parser = yacc.yacc()
 
-while True:
-   try:
-       s = open("./tests/7cycleCondition.rb", 'r')
-   except EOFError:
-       break
-   if not s: continue
-   result = parser.parse(s)
-   print(result)
-#Grammar for language(Assignment,Selection & loop)
+import sys
+def main(argv):
+    # if (len(sys.argv) != 2):
+    #     print ('usage: python lex.py <test_file>')
+    #     return -1
+    f = open(argv[1], "r") 
+    input = f.read()
+    parser.parse(input)
+
+
+if __name__ == "__main__":
+    main(sys.argv)
+
+
+# # while 1:
+# #    try:
+# #        s = raw_input('calc > ')
+#    except EOFError:
+#        break
+#    if not s: continue
+#    result = yacc.parse(s)
+#    print result
 

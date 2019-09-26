@@ -17,10 +17,10 @@ class LexicalAnalizer(object):
     #t_IF= r'if'
     t_DIVIDE= r'\/'
     t_TIMES= r'\*'
-    t_RPAREN= r'\('
+    t_RPAREN= r'\)'
     #t_BOOL= r'true|false'
     t_MINUS= r'\-'
-    t_ID= r'[a-z_][a-zA-Z0-9_]*'
+    t_ID= r'[A-Za-z_][a-zA-Z0-9_]*'
     #t_INPUT_S= r'gets.chomp'
     t_GE= r'\>\='
     t_NE= r'\!\='
@@ -73,7 +73,7 @@ class LexicalAnalizer(object):
         pass
 
     def t_comments(self, t):
-        r'=begin+([\n]*[A-Za-z0-9]*[^\S\n\t]*)*=end'
+        r'=begin+([.]*[A-Za-z0-9]*[^\S\n\t]*)*=end'
         pass
 
   

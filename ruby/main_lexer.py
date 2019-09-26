@@ -1,5 +1,6 @@
 import sys
-from lexical import LexicalAnalizer
+from lexer import LexicalAnalizer
+
 
 
 def main(argv):
@@ -15,4 +16,3 @@ def main(argv):
 
 if __name__ == "__main__":
 	main(sys.argv)
-
