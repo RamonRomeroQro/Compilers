@@ -1,8 +1,7 @@
 
-import ply.yacc as yacc
-import logging
-from lexer import LexicalAnalizer
-tokens=LexicalAnalizer.tokens
+from ply import yacc
+from lexer import tokens
+tokens=tokens
 
 # precedence = (
 #     ('left', 'OP_AND', 'OP_OR'),
@@ -126,23 +125,16 @@ def p_lit_value(p):
     '''
 
 def p_error(p):
-    print("Syntax error in input!")
+    if p == None:
+        token = "end of file"
+    else:
+        token = f"{p.type}({p.value}) on line {p.lineno}"
 
+    print(f"Syntax error: Unexpected {token}")
+    
 # Build the parser
-parser = yacc.yacc()
+Parser = yacc.yacc()
 
-import sys
-def main(argv):
-    # if (len(sys.argv) != 2):
-    #     print ('usage: python lex.py <test_file>')
-    #     return -1
-    f = open(argv[1], "r") 
-    input = f.read()
-    parser.parse(input)
-
-
-if __name__ == "__main__":
-    main(sys.argv)
 
 
 # # while 1:
