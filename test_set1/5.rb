@@ -1,4 +1,4 @@
 # String declaration and use
 
-full_name = "Ramon";
-print "My name is " + full_name;
+full_name = "Ramon\n"
+print "\nMy name is " + full_name

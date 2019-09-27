@@ -3,4 +3,6 @@ THIS IS
 A MULTILINE
 COMMENT
 =end
-print "This program contains a multiline comment";
+
+print "\nThis program contains a multiline comment\n"
+

@@ -1,7 +1,12 @@
 
+'''
+Declaration of productions
+'''
+
 from ply import yacc
 from lexer import tokens
-tokens=tokens
+tokens = tokens
+
 
 # precedence = (
 #     ('left', 'OP_AND', 'OP_OR'),
@@ -14,20 +19,33 @@ tokens=tokens
 #     ('right', 'OP_NOT'),
 #     ('right', 'LBRACKET')
 # )
-def p_program(p): 
+
+
+# def p_factor(p):
+#     '''
+#     factor : lit_value
+#             | LPAREN expression RPAREN
+#             | ID
+#     '''
+
+def p_program(p):
     '''program : statements
-	'''
+        '''
 
-def p_statements(p): 
+
+def p_statements(p):
     '''statements : T statement T statements	
-	| T statement T 
-	'''
-def p_T(p):
-	'''T : T newline
-	|
-	'''
+        | T statement T 
+        '''
 
-def p_statement(p): 
+
+def p_T(p):
+    '''T : T NEWLINE
+    |
+    '''
+
+
+def p_statement(p):
     '''
     statement   : var_declaration 
                 | if_statement
@@ -35,47 +53,52 @@ def p_statement(p):
                 | print_statement
                 | input_statement
     '''
-    
+
 
 def p_input_statement(p):
     '''
     input_statement : INPUT_I
                     | INPUT_S
     '''
- 
-def p_print_statement(p): 
+
+
+def p_print_statement(p):
     '''
-    print_statement : PRINT lit_value SEMICOLON
-                    | PRINT expression SEMICOLON
-                    | PRINT ID SEMICOLON
+    print_statement : PRINT lit_value 
+                    | PRINT expression 
+                    | PRINT ID 
     '''
 
-def p_var_declaration(p): 
+
+def p_var_declaration(p):
     '''
-    var_declaration : ID ASS_OP lit_value SEMICOLON
-		            | ID ASS_OP expression SEMICOLON
-                    | ID ASS_OP ID SEMICOLON
-                    | ID ASS_OP input_statement SEMICOLON
+    var_declaration : ID ASS_OP lit_value 
+                            | ID ASS_OP expression 
+                    | ID ASS_OP ID 
+                    | ID ASS_OP input_statement 
     '''
 
-def p_if_statement(p): 
+
+def p_if_statement(p):
     '''
     if_statement : IF expression THEN statements END
-		         | IF expression THEN statements ELSE statements END
+                         | IF expression THEN statements ELSE statements END
     '''
-    
 
-def p_while_statement(p): 
+
+def p_while_statement(p):
     '''
     while_statement : WHILE expression DO statements END
     '''
 
-def p_expression(p): 
+
+def p_expression(p):
     '''
     expression      : math_expression
                     | MINUS math_expression
-		            | relational_expression
+                            | relational_expression
     '''
+
 
 def p_math_expression(p):
     '''
@@ -84,13 +107,15 @@ def p_math_expression(p):
                     | term 
     '''
 
+
 def p_relational_expression(p):
     '''
     relational_expression : math_expression relational_op math_expression
                           | NOT math_expression
     '''
 
-def p_term(p): 
+
+def p_term(p):
     '''
     term    : factor TIMES term
             | factor DIVIDE term
@@ -99,14 +124,15 @@ def p_term(p):
     '''
 
 
-def p_factor(p): 
+def p_factor(p):
     '''
     factor : lit_value
             | LPAREN expression RPAREN
             | ID
     '''
 
-def p_relational_op(p): 
+
+def p_relational_op(p):
     '''
     relational_op   : AND 
                     | OR 
@@ -117,12 +143,15 @@ def p_relational_op(p):
                     | NE
                     | EQ 
     '''
+
+
 def p_lit_value(p):
     '''
-    lit_value   : INTEGER 
+    lit_value   : NUMBER 
                 | STRING 
                 | BOOL 
     '''
+
 
 def p_error(p):
     if p == None:
@@ -130,19 +159,8 @@ def p_error(p):
     else:
         token = f"{p.type}({p.value}) on line {p.lineno}"
 
-    print(f"Syntax error: Unexpected {token}")
-    
+    print((f"Syntax error: Unexpected {token}"))
+
+
 # Build the parser
 Parser = yacc.yacc()
-
-
-
-# # while 1:
-# #    try:
-# #        s = raw_input('calc > ')
-#    except EOFError:
-#        break
-#    if not s: continue
-#    result = yacc.parse(s)
-#    print result
-
