@@ -1,6 +1,5 @@
 # Ruby - PLY (Python Lex-Yacc)
 
-
 -----
 
     Copyright 2019 © Ramón Romero @RamonRomeroQro
@@ -27,17 +26,77 @@
 
 ## Características a considerar
 
-1. Comentarios: Tu lenguaje debe permitir comentarios. Por ejemplo, en C usas /* */ o //.
-2. Estructuras anidadas: Debe haber una manera de crear estructuras anidadas como estructuras condicionales, ciclos o jerarquías (como en XML). Por ejemplo, en C, puedes anidar tantos if’s como quieras.
-3. Variables y constantes: Tu lenguaje debe permitir el uso de variables y constantes, tengan o no un tipo.
-4. Cadenas de caracteres (strings): Tu lenguaje debe permitir el uso de cadenas como un token.
-5. Tipos de datos: Si está usando un lenguaje de programación tipado, debe usar al menos 3 tipos
-(entero, booleano, cadena).
-6. Condicionales y ciclos: Tu lenguaje de programación debe tener al menos una instrucción de ciclo y una instrucción condicional. Ambos deben admitir el anidamiento.
+1. Comentarios: 
+
+    ``` ruby
+
+    # Comentario de una linea
+    =begin
+    Comentario 
+    multilinea
+    =end
+
+    ```
+2. Estructuras anidadas: 
+
+    + Debe haber una manera de crear estructuras anidadas como estructuras condicionales, ciclos o jerarquías
+
+    ``` python
+
+    '''
+    if_statement : IF expression THEN statements END
+                            | IF expression THEN statements ELSE statements END
+    '''
+
+    '''
+    while_statement : WHILE expression DO statements END
+    '''
+
+    '''
+    statements  : T statement T statements	
+                | T statement T 
+    '''
+
+    '''
+    T   : T newline
+        |
+    '''
+
+    ```
+
+
+3. Variables y constantes: 
+
+
+
+```ruby
+
+=begin
+The Ruby interpreter does not actually enforce the constancy of constants. 
+They remain mutable.
+https://www.oreilly.com/library/view/the-ruby-programming/9780596516178/ch04s03.html
+https://ruby-doc.org/docs/ruby-doc-bundle/UsersGuide/rg/constants.html
+=end
+
+```
+4. Cadenas de caracteres (strings)
+
+5. Tipos de datos (Ruby es un lenguaje de tipado dinamico):
+    - numerico
+    - cadena de caracteres
+    - booleano
+
+6. Condicionales y ciclos
+    - while x do y end
+    - if x then y end | if x then y else z end
 
 ----
 
 ## Primera Entrega
+
+### Casos de prueba de unidad
+
+En directorio ``` /test_set1/ ```
 
 1. Un programa sencillo con un comentario de una palabra.
 2. Un programa sencillo con un comentario de una línea.
@@ -47,33 +106,60 @@
 6. Un programa sencillo con variables de todos los tipos de datos.
 7. Un programa sencillo con un ciclo y una condicional.
 8. Un programa sencillo usando las instrucciones de entrada y salida.
-9. Un programa sencillo con todas las instrucciones que has definido.
+9. Un programa sencillo con todas las instrucciones que has definido (mixed).
 
 ---
 
 ## Casos de prueba
 
+En directorio ``` /test_set2/ ```
+
+
 También debes crear los siguientes casos de prueba, todos deben definir:
+
 1. Un programa sencillo con la definición de una variable en el lugar incorrecto y en el orden incorrecto.
 2. Un programa sencillo que utiliza una cadena, variable y constante en un lugar que no está permitido.
 3. Un programa sencillo con un ciclo definido pero usando una gramática incorrecta.
 
-Todos los tokens no definidos en la definición formal de tu lenguaje deberán generar un error. Todos los errores contenidos en una entrada deben estar presentes.
+Todos los tokens no definidos en la definición formal de tu lenguaje deberán generar un error.
+Todos los errores contenidos en una entrada deben estar presentes.
 Si alguno de estos requisitos no se aplica a tu lenguaje de programación, prepárate para explicar por qué.
 
-## Ejecución
+## Ejecucion y resultados
+
+El scrip de bash ejecuta el lexer y parser de todos los casos de prueba definidos y el resultado del analisis estará en ``` results.txt ```
 
 ``` bash
 
-$ ./run_all.sh
+$ ./run_all > results.txt
 
 ```
 
-## Notas y consideraciones
+### Notas
 
-- x
-- y
-- z
++ Tras ejecutar las prubas, la identificación de tokens resulta exitosa al igual que la detección de errores sitacticos en el segundo set de pruebas.
 
 
+### Ejecución Lexer
+
+``` bash
+
+$ python3 main_lexer.py [ruby_file]
+
+```
+#### Output
+
+El output sera un listado de todos los tokens
+
+
+### Ejecución Parser
+
+``` bash
+
+$ python3 main_parser.py [ruby_file]
+
+```
+#### Output
+
+Si hay errores de sintaxis el output se mostraran, en caso contrario, un ``` None ```
 

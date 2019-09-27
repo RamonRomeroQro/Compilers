@@ -1,2 +1,4 @@
 # This is a comment
-print "This program contains a single word/line comment";
+
+print "\nThis program contains a single word/line comment\n"
+
