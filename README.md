@@ -168,4 +168,4 @@ $ python3 main_parser.py [ruby_file]
 ```
 #### Output
 
-Si hay errores de sintaxis el output se mostraran, en caso contrario estara vacío.
+Si hay errores de sintaxisse mostraran en el outout
