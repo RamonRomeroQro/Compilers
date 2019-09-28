@@ -15,6 +15,9 @@ tokens = ('GT', 'LE', 'PRINT', 'INTEGER', 'END',
           'ID', 'ASS_OP', 'INPUT_I', 'NEWLINE', 'CONSTANT')
 
 
+# Expresiones regulares 'to match'
+
+
 #t_ELSE= r'else'
 #t_IF= r'if'
 t_DIVIDE = r'\/'

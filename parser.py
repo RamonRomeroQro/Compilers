@@ -22,21 +22,23 @@ tokens = tokens
 # )
 
 
+# Programa tiene statements
 def p_program(p):
 	'''program : statements
 	'''
-	
+
+# Statements, pueden ser uno o mas (bloques)
 def p_statements(p):
     '''statements : T statement T statements	
         | T statement T 
         '''
-
+# separados por saltos de lineas
 def p_T(p):
     '''T : T NEWLINE
     |
     '''
 
-
+# los distintos tipos de statements
 def p_statement(p):
     '''
     statement   : var_declaration 
@@ -48,13 +50,14 @@ def p_statement(p):
     '''
 
 
+# leer de consola
 def p_input_statement(p):
     '''
     input_statement : INPUT_I
                     | INPUT_S
     '''
 
-
+# imprimir a consola
 def p_print_statement(p):
     '''
     print_statement : PRINT lit_value 
@@ -63,7 +66,7 @@ def p_print_statement(p):
                     | PRINT CONSTANT 
     '''
 
-
+# declaracion de variable
 def p_var_declaration(p):
     '''
     var_declaration : ID ASS_OP lit_value 
@@ -72,6 +75,7 @@ def p_var_declaration(p):
                     | ID ASS_OP CONSTANT 
                     | ID ASS_OP input_statement 
     '''
+# declaracion de constante
 
 
 def p_cons_declaration(p):
@@ -83,6 +87,8 @@ def p_cons_declaration(p):
                     | CONSTANT ASS_OP input_statement 
     '''
 
+# Estructura de if, que permite anidacion gracias a los statements (block)
+
 
 def p_if_statement(p):
     '''
@@ -90,13 +96,14 @@ def p_if_statement(p):
                          | IF expression THEN statements ELSE statements END
     '''
 
+# while de if, que permite anidacion gracias a los statements (block)
 
 def p_while_statement(p):
     '''
     while_statement : WHILE expression DO statements END
     '''
 
-
+# expresiones , mathematicas y relacionales (booleanas)
 def p_expression(p):
     '''
     expression      : math_expression
@@ -105,6 +112,7 @@ def p_expression(p):
     '''
 
 
+# romper expresion matematica en suma y resta (binarias)
 def p_math_expression(p):
     '''
     math_expression : term PLUS math_expression
@@ -113,13 +121,15 @@ def p_math_expression(p):
     '''
 
 
+# expresiones booleanas
+
 def p_relational_expression(p):
     '''
     relational_expression : math_expression relational_op math_expression
                           | NOT math_expression
     '''
 
-
+# expresiones matematicas de *%/ (binarias)
 def p_term(p):
     '''
     term    : factor TIMES term
@@ -129,6 +139,7 @@ def p_term(p):
     '''
 
 
+# Ultimo nivel de expresiones matematicas a valores o parentesis
 def p_factor(p):
     '''
     factor : lit_value
@@ -137,7 +148,7 @@ def p_factor(p):
             | CONSTANT
     '''
 
-
+# operadores relacionales (booleanos binarios)
 def p_relational_op(p):
     '''
     relational_op   : AND 
@@ -151,13 +162,14 @@ def p_relational_op(p):
     '''
 
 
-def p_lit_value(p):
+def p_lit_value(p): # uso de valores literales
     '''
     lit_value   : INTEGER 
                 | STRING 
                 | BOOL 
     '''
 
+# imprimir error y ubicación
 
 def p_error(p):
     if p == None:
