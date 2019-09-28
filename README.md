@@ -17,7 +17,7 @@
     along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
     Special thanks to: 
-    @Manchas2k4, @dabeaz and @eduardolarios.
+    @Manchas2k4 and @dabeaz (PLY)
     
 
 -----
