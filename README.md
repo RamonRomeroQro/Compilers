@@ -31,6 +31,7 @@
     ``` ruby
 
     # Comentario de una linea
+
     =begin
     Comentario 
     multilinea
@@ -39,7 +40,9 @@
     ```
 2. Estructuras anidadas: 
 
-    + Debe haber una manera de crear estructuras anidadas como estructuras condicionales, ciclos o jerarquías
+    + Debe haber una manera de crear estructuras anidadas como estructuras condicionales, ciclos o jerarquías (if, while)
+
+    + Gramática:
 
     ``` python
 
@@ -67,22 +70,19 @@
 
 3. Variables y constantes: 
 
+Las constantes son identificadas son identificadas por que comienzan con una letra mayuscula [A-Z], sin embargo, permanece mutable y su comportamiento es homólogo al de las variables 
 
 
-```ruby
-
-=begin
-The Ruby interpreter does not actually enforce the constancy of constants. 
-They remain mutable.
-https://www.oreilly.com/library/view/the-ruby-programming/9780596516178/ch04s03.html
+> The Ruby interpreter does not actually enforce the constancy of constants.
+>https://www.oreilly.com/library/view/the-ruby-programming/9780596516178/ch04s03.html
 https://ruby-doc.org/docs/ruby-doc-bundle/UsersGuide/rg/constants.html
-=end
 
-```
+
+
 4. Cadenas de caracteres (strings)
 
 5. Tipos de datos (Ruby es un lenguaje de tipado dinamico):
-    - numerico
+    - numerico (int)
     - cadena de caracteres
     - booleano
 
@@ -127,7 +127,7 @@ Si alguno de estos requisitos no se aplica a tu lenguaje de programación, prep
 
 ## Ejecucion y resultados
 
-El scrip de bash ejecuta el lexer y parser de todos los casos de prueba definidos y el resultado del analisis estará en ``` results.txt ```
+**El script de bash ejecuta el lexer y parser de todos los casos de prueba definidos y el resultado del analisis estará en ``` results.txt ```**
 
 ``` bash
 

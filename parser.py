@@ -28,10 +28,6 @@ tokens = tokens
 #             | ID
 #     '''
 
-def p_program(p):
-    '''program : statements
-        '''
-
 
 def p_statements(p):
     '''statements : T statement T statements	
@@ -52,6 +48,7 @@ def p_statement(p):
                 | while_statement
                 | print_statement
                 | input_statement
+                | cons_declaration
     '''
 
 
@@ -67,15 +64,27 @@ def p_print_statement(p):
     print_statement : PRINT lit_value 
                     | PRINT expression 
                     | PRINT ID 
+                    | PRINT CONSTANT 
     '''
 
 
 def p_var_declaration(p):
     '''
     var_declaration : ID ASS_OP lit_value 
-                            | ID ASS_OP expression 
+                    | ID ASS_OP expression 
                     | ID ASS_OP ID 
+                    | ID ASS_OP CONSTANT 
                     | ID ASS_OP input_statement 
+    '''
+
+
+def p_cons_declaration(p):
+    '''
+    cons_declaration : CONSTANT ASS_OP lit_value 
+                    | CONSTANT ASS_OP expression 
+                    | CONSTANT ASS_OP ID 
+                    | CONSTANT ASS_OP CONSTANT
+                    | CONSTANT ASS_OP input_statement 
     '''
 
 
@@ -129,6 +138,7 @@ def p_factor(p):
     factor : lit_value
             | LPAREN expression RPAREN
             | ID
+            | CONSTANT
     '''
 
 
@@ -147,7 +157,7 @@ def p_relational_op(p):
 
 def p_lit_value(p):
     '''
-    lit_value   : NUMBER 
+    lit_value   : INTEGER 
                 | STRING 
                 | BOOL 
     '''

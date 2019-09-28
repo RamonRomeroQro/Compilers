@@ -15,8 +15,7 @@ def main(argv):
 		tok = la.token()
 		if not tok:
 			break
-        print(tok)
-
+		print(tok)
 
 if __name__ == "__main__":
     main(sys.argv)

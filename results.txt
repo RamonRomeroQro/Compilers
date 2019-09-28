@@ -1,6 +1,6 @@
 
 
-TEST_CASE:: ./test_set1/1.rb
+> TEST_CASE:  ./test_set1/1.rb
 
 
 >>> LEXER
@@ -10,10 +10,10 @@ LexToken(STRING,'"\\nThis program contains a single word/line comment\\n"',3,27)
 LexToken(NEWLINE,'\n\n',3,81)
 
 
->>> PARSER
+>>> PARSER ERRORS
 
 
-TEST_CASE:: ./test_set1/2.rb
+> TEST_CASE:  ./test_set1/2.rb
 
 
 >>> LEXER
@@ -23,50 +23,47 @@ LexToken(STRING,'"\\nThis program contains a multiline comment\\n"',3,47)
 LexToken(NEWLINE,'\n\n',3,94)
 
 
->>> PARSER
+>>> PARSER ERRORS
 
 
-TEST_CASE:: ./test_set1/3.rb
+> TEST_CASE:  ./test_set1/3.rb
 
 
 >>> LEXER
 LexToken(NEWLINE,'\n\n',1,49)
 LexToken(ID,'my_num',3,51)
 LexToken(ASS_OP,'=',3,58)
-LexToken(NUMBER,'25',3,60)
+LexToken(INTEGER,25,3,60)
 LexToken(NEWLINE,'\n\n',3,62)
 LexToken(PRINT,'print',5,64)
 LexToken(ID,'my_num',5,70)
 LexToken(NEWLINE,'\n',5,76)
 
 
->>> PARSER
+>>> PARSER ERRORS
 
 
-TEST_CASE:: ./test_set1/4.rb
+> TEST_CASE:  ./test_set1/4.rb
 
 
 >>> LEXER
-LexToken(NEWLINE,'\n\n',1,204)
-LexToken(ID,'Cons',3,206)
-LexToken(ASS_OP,'=',3,211)
-LexToken(NUMBER,'22',3,213)
-LexToken(NEWLINE,'\n',3,215)
-LexToken(PRINT,'print',4,216)
-LexToken(STRING,'"\\n"',4,222)
-LexToken(NEWLINE,'\n',4,226)
-LexToken(PRINT,'print',5,227)
-LexToken(ID,'Cons',5,233)
-LexToken(NEWLINE,'\n',5,237)
-LexToken(PRINT,'print',6,238)
-LexToken(STRING,'"\\n"',6,244)
-LexToken(NEWLINE,'\n\n\n',6,248)
+LexToken(NEWLINE,'\n\n',1,262)
+LexToken(CONSTANT,'Const',3,264)
+LexToken(ASS_OP,'=',3,270)
+LexToken(INTEGER,22,3,272)
+LexToken(NEWLINE,'\n',3,274)
+LexToken(PRINT,'print',4,275)
+LexToken(CONSTANT,'Const',4,281)
+LexToken(NEWLINE,'\n',4,286)
+LexToken(PRINT,'print',5,287)
+LexToken(STRING,'"\\n"',5,293)
+LexToken(NEWLINE,'\n',5,297)
 
 
->>> PARSER
+>>> PARSER ERRORS
 
 
-TEST_CASE:: ./test_set1/5.rb
+> TEST_CASE:  ./test_set1/5.rb
 
 
 >>> LEXER
@@ -81,10 +78,10 @@ LexToken(PLUS,'+',4,74)
 LexToken(ID,'full_name',4,76)
 
 
->>> PARSER
+>>> PARSER ERRORS
 
 
-TEST_CASE:: ./test_set1/6.rb
+> TEST_CASE:  ./test_set1/6.rb
 
 
 >>> LEXER
@@ -105,44 +102,54 @@ LexToken(ASS_OP,'=',8,113)
 LexToken(ID,'first_arg',8,115)
 LexToken(OR,'or',8,125)
 LexToken(ID,'secorn_arg',8,128)
-LexToken(NEWLINE,'\n\n',8,138)
-LexToken(ID,'n',10,140)
-LexToken(ASS_OP,'=',10,141)
-LexToken(NUMBER,'0',10,142)
-LexToken(NEWLINE,'\n',10,143)
-LexToken(ID,'n',11,144)
-LexToken(ASS_OP,'=',11,145)
-LexToken(ID,'n',11,146)
-LexToken(PLUS,'+',11,147)
-LexToken(NUMBER,'1',11,148)
-LexToken(NEWLINE,'\n\n\n',11,149)
-LexToken(ID,'name',14,152)
-LexToken(ASS_OP,'=',14,157)
-LexToken(STRING,'"Ramon "',14,159)
-LexToken(PLUS,'+',14,168)
-LexToken(STRING,'"Romero"',14,170)
-LexToken(NEWLINE,'\n\n',14,178)
-LexToken(PRINT,'print',16,180)
-LexToken(ID,'boolean_eval',16,186)
-LexToken(NEWLINE,'\n',16,199)
-LexToken(PRINT,'print',17,200)
-LexToken(STRING,'"\\n"',17,206)
-LexToken(NEWLINE,'\n',17,210)
-LexToken(PRINT,'print',18,211)
-LexToken(ID,'n',18,217)
-LexToken(NEWLINE,'\n',18,219)
-LexToken(PRINT,'print',19,220)
-LexToken(STRING,'"\\n"',19,226)
-LexToken(NEWLINE,'\n',19,230)
-LexToken(PRINT,'print',20,231)
-LexToken(ID,'name',20,237)
-LexToken(NEWLINE,'\n\n\n\n\n',20,241)
+LexToken(NEWLINE,'\n',8,138)
+LexToken(CONSTANT,'Cons',9,139)
+LexToken(ASS_OP,'=',9,144)
+LexToken(INTEGER,42,9,146)
+LexToken(NEWLINE,'\n',9,148)
+LexToken(ID,'n',10,149)
+LexToken(ASS_OP,'=',10,150)
+LexToken(INTEGER,0,10,151)
+LexToken(NEWLINE,'\n',10,152)
+LexToken(ID,'n',11,153)
+LexToken(ASS_OP,'=',11,154)
+LexToken(ID,'n',11,155)
+LexToken(PLUS,'+',11,156)
+LexToken(INTEGER,1,11,157)
+LexToken(NEWLINE,'\n\n\n',11,158)
+LexToken(ID,'name',14,161)
+LexToken(ASS_OP,'=',14,166)
+LexToken(STRING,'"Ramon "',14,168)
+LexToken(PLUS,'+',14,177)
+LexToken(STRING,'"Romero"',14,179)
+LexToken(NEWLINE,'\n\n',14,187)
+LexToken(PRINT,'print',16,189)
+LexToken(ID,'boolean_eval',16,195)
+LexToken(NEWLINE,'\n',16,208)
+LexToken(PRINT,'print',17,209)
+LexToken(STRING,'"\\n"',17,215)
+LexToken(NEWLINE,'\n',17,219)
+LexToken(PRINT,'print',18,220)
+LexToken(ID,'n',18,226)
+LexToken(NEWLINE,'\n',18,228)
+LexToken(PRINT,'print',19,229)
+LexToken(STRING,'"\\n"',19,235)
+LexToken(NEWLINE,'\n',19,239)
+LexToken(PRINT,'print',20,240)
+LexToken(CONSTANT,'Cons',20,246)
+LexToken(NEWLINE,'\n',20,250)
+LexToken(PRINT,'print',21,251)
+LexToken(STRING,'"\\n"',21,257)
+LexToken(NEWLINE,'\n',21,261)
+LexToken(PRINT,'print',22,262)
+LexToken(ID,'name',22,268)
+LexToken(NEWLINE,'\n\n\n\n\n',22,272)
 
 
->>> PARSER
+>>> PARSER ERRORS
 
 
-TEST_CASE:: ./test_set1/7.rb
+> TEST_CASE:  ./test_set1/7.rb
 
 
 >>> LEXER
@@ -152,12 +159,12 @@ LexToken(STRING,'"\\nCycle, if, else\\n"',2,7)
 LexToken(NEWLINE,'\n\n',2,29)
 LexToken(ID,'a',4,31)
 LexToken(ASS_OP,'=',4,32)
-LexToken(NUMBER,'1',4,33)
+LexToken(INTEGER,1,4,33)
 LexToken(NEWLINE,'\n',4,34)
 LexToken(WHILE,'while',5,35)
 LexToken(ID,'a',5,41)
 LexToken(LT,'<',5,42)
-LexToken(NUMBER,'11',5,43)
+LexToken(INTEGER,11,5,43)
 LexToken(DO,'do',5,46)
 LexToken(NEWLINE,'\n',5,48)
 LexToken(PRINT,'print',6,53)
@@ -166,9 +173,9 @@ LexToken(NEWLINE,'\n',6,60)
 LexToken(IF,'if',7,65)
 LexToken(ID,'a',7,68)
 LexToken(MODULO,'%',7,69)
-LexToken(NUMBER,'2',7,70)
+LexToken(INTEGER,2,7,70)
 LexToken(EQ,'==',7,72)
-LexToken(NUMBER,'0',7,75)
+LexToken(INTEGER,0,7,75)
 LexToken(THEN,'then',7,77)
 LexToken(NEWLINE,'\n',7,81)
 LexToken(PRINT,'print',8,90)
@@ -185,7 +192,7 @@ LexToken(ID,'a',12,152)
 LexToken(ASS_OP,'=',12,154)
 LexToken(ID,'a',12,156)
 LexToken(PLUS,'+',12,158)
-LexToken(NUMBER,'1',12,160)
+LexToken(INTEGER,1,12,160)
 LexToken(NEWLINE,'\n',12,161)
 LexToken(PRINT,'print',13,166)
 LexToken(STRING,'"\\n"',13,172)
@@ -193,54 +200,245 @@ LexToken(NEWLINE,'\n\n',13,177)
 LexToken(END,'end',15,179)
 
 
->>> PARSER
+>>> PARSER ERRORS
 
 
-TEST_CASE:: ./test_set1/8.rb
+> TEST_CASE:  ./test_set1/8.rb
 
 
 >>> LEXER
-LexToken(PRINT,'print',1,0)
-LexToken(STRING,'"\\nWhat is you name ? ->"',1,6)
-LexToken(NEWLINE,'\n',1,31)
-LexToken(ID,'name',2,32)
-LexToken(ASS_OP,'=',2,37)
-LexToken(INPUT_S,'gets.chomp',2,39)
-LexToken(NEWLINE,'\n\n',2,49)
-LexToken(PRINT,'print',4,51)
-LexToken(STRING,'"Hola! "',4,57)
-LexToken(PLUS,'+',4,65)
-LexToken(ID,'name',4,67)
-LexToken(PLUS,'+',4,72)
-LexToken(STRING,'"\\n"',4,73)
-LexToken(NEWLINE,'\n\n',4,77)
-LexToken(PRINT,'print',6,79)
-LexToken(STRING,'"Age? ->"',6,85)
-LexToken(NEWLINE,'\n',6,94)
-LexToken(ID,'n',7,95)
-LexToken(ASS_OP,'=',7,97)
-LexToken(INPUT_I,'gets.chomp.to_i',7,99)
-LexToken(NEWLINE,'\n',7,114)
-LexToken(ID,'n',8,115)
-LexToken(ASS_OP,'=',8,117)
-LexToken(ID,'n',8,119)
-LexToken(PLUS,'+',8,120)
-LexToken(NUMBER,'1',8,121)
-LexToken(NEWLINE,'\n\n',8,122)
-LexToken(PRINT,'print',10,124)
-LexToken(STRING,'"\\nnext year you will have "',10,130)
-LexToken(NEWLINE,'\n',10,159)
-LexToken(PRINT,'print',11,160)
-LexToken(ID,'n',11,166)
-LexToken(NEWLINE,'\n',11,168)
-LexToken(PRINT,'print',12,169)
-LexToken(STRING,'"\\n"',12,175)
+LexToken(NEWLINE,'\n',1,0)
+LexToken(PRINT,'print',2,1)
+LexToken(STRING,'"\\nWhat is you name ? ->"',2,7)
+LexToken(NEWLINE,'\n',2,32)
+LexToken(ID,'name',3,33)
+LexToken(ASS_OP,'=',3,38)
+LexToken(INPUT_S,'gets.chomp',3,40)
+LexToken(NEWLINE,'\n\n',3,50)
+LexToken(PRINT,'print',5,52)
+LexToken(STRING,'"Hola! "',5,58)
+LexToken(PLUS,'+',5,66)
+LexToken(ID,'name',5,68)
+LexToken(PLUS,'+',5,73)
+LexToken(STRING,'"\\n"',5,74)
+LexToken(NEWLINE,'\n\n',5,78)
+LexToken(PRINT,'print',7,80)
+LexToken(STRING,'"Age? ->"',7,86)
+LexToken(NEWLINE,'\n',7,95)
+LexToken(ID,'n',8,96)
+LexToken(ASS_OP,'=',8,98)
+LexToken(INPUT_I,'gets.chomp.to_i',8,100)
+LexToken(NEWLINE,'\n',8,115)
+LexToken(ID,'n',9,116)
+LexToken(ASS_OP,'=',9,118)
+LexToken(ID,'n',9,120)
+LexToken(PLUS,'+',9,121)
+LexToken(INTEGER,1,9,122)
+LexToken(NEWLINE,'\n\n',9,123)
+LexToken(PRINT,'print',11,125)
+LexToken(STRING,'"\\nnext year you will have "',11,131)
+LexToken(NEWLINE,'\n',11,160)
+LexToken(PRINT,'print',12,161)
+LexToken(ID,'n',12,167)
+LexToken(NEWLINE,'\n',12,169)
+LexToken(PRINT,'print',13,170)
+LexToken(STRING,'"\\n"',13,176)
+LexToken(NEWLINE,'\n',13,180)
 
 
->>> PARSER
+>>> PARSER ERRORS
+
+
+> TEST_CASE:  ./test_set1/9.rb
+
+
+>>> LEXER
+LexToken(NEWLINE,'\n\n',1,19)
+LexToken(PRINT,'print',3,21)
+LexToken(STRING,'"\\nThis program contains a single word/line comment\\n"',3,27)
+LexToken(NEWLINE,'\n\n\n\n\n',3,81)
+LexToken(NEWLINE,'\n\n',8,125)
+LexToken(PRINT,'print',10,127)
+LexToken(STRING,'"\\nThis program contains a multiline comment\\n"',10,133)
+LexToken(NEWLINE,'\n\n\n\n\n',10,180)
+LexToken(NEWLINE,'\n\n',15,234)
+LexToken(ID,'my_num',17,236)
+LexToken(ASS_OP,'=',17,243)
+LexToken(INTEGER,25,17,245)
+LexToken(NEWLINE,'\n\n',17,247)
+LexToken(PRINT,'print',19,249)
+LexToken(ID,'my_num',19,255)
+LexToken(NEWLINE,'\n\n\n\n',19,261)
+LexToken(NEWLINE,'\n\n',23,527)
+LexToken(CONSTANT,'Const',25,529)
+LexToken(ASS_OP,'=',25,535)
+LexToken(INTEGER,22,25,537)
+LexToken(NEWLINE,'\n',25,539)
+LexToken(PRINT,'print',26,540)
+LexToken(CONSTANT,'Const',26,546)
+LexToken(NEWLINE,'\n',26,551)
+LexToken(PRINT,'print',27,552)
+LexToken(STRING,'"\\n"',27,558)
+LexToken(NEWLINE,'\n\n\n\n',27,562)
+LexToken(NEWLINE,'\n\n',31,594)
+LexToken(ID,'full_name',33,596)
+LexToken(ASS_OP,'=',33,606)
+LexToken(STRING,'"Ramon\\n"',33,608)
+LexToken(NEWLINE,'\n',33,617)
+LexToken(PRINT,'print',34,618)
+LexToken(STRING,'"\\nMy name is "',34,624)
+LexToken(PLUS,'+',34,640)
+LexToken(ID,'full_name',34,642)
+LexToken(NEWLINE,'\n\n\n',34,651)
+LexToken(NEWLINE,'\n\n',37,680)
+LexToken(PRINT,'print',39,682)
+LexToken(STRING,'"\\nBool, int and string\\n"',39,688)
+LexToken(NEWLINE,'\n\n\n',39,715)
+LexToken(ID,'first_arg',42,718)
+LexToken(ASS_OP,'=',42,728)
+LexToken(BOOL,'true',42,730)
+LexToken(NEWLINE,'\n',42,734)
+LexToken(ID,'secorn_arg',43,735)
+LexToken(ASS_OP,'=',43,746)
+LexToken(BOOL,'false',43,748)
+LexToken(NEWLINE,'\n',43,753)
+LexToken(ID,'boolean_eval',44,754)
+LexToken(ASS_OP,'=',44,767)
+LexToken(ID,'first_arg',44,769)
+LexToken(OR,'or',44,779)
+LexToken(ID,'secorn_arg',44,782)
+LexToken(NEWLINE,'\n',44,792)
+LexToken(CONSTANT,'Cons',45,793)
+LexToken(ASS_OP,'=',45,798)
+LexToken(INTEGER,42,45,800)
+LexToken(NEWLINE,'\n',45,802)
+LexToken(ID,'n',46,803)
+LexToken(ASS_OP,'=',46,804)
+LexToken(INTEGER,0,46,805)
+LexToken(NEWLINE,'\n',46,806)
+LexToken(ID,'n',47,807)
+LexToken(ASS_OP,'=',47,808)
+LexToken(ID,'n',47,809)
+LexToken(PLUS,'+',47,810)
+LexToken(INTEGER,1,47,811)
+LexToken(NEWLINE,'\n\n\n',47,812)
+LexToken(ID,'name',50,815)
+LexToken(ASS_OP,'=',50,820)
+LexToken(STRING,'"Ramon "',50,822)
+LexToken(PLUS,'+',50,831)
+LexToken(STRING,'"Romero"',50,833)
+LexToken(NEWLINE,'\n\n',50,841)
+LexToken(PRINT,'print',52,843)
+LexToken(ID,'boolean_eval',52,849)
+LexToken(NEWLINE,'\n',52,862)
+LexToken(PRINT,'print',53,863)
+LexToken(STRING,'"\\n"',53,869)
+LexToken(NEWLINE,'\n',53,873)
+LexToken(PRINT,'print',54,874)
+LexToken(ID,'n',54,880)
+LexToken(NEWLINE,'\n',54,882)
+LexToken(PRINT,'print',55,883)
+LexToken(STRING,'"\\n"',55,889)
+LexToken(NEWLINE,'\n',55,893)
+LexToken(PRINT,'print',56,894)
+LexToken(CONSTANT,'Cons',56,900)
+LexToken(NEWLINE,'\n',56,904)
+LexToken(PRINT,'print',57,905)
+LexToken(STRING,'"\\n"',57,911)
+LexToken(NEWLINE,'\n',57,915)
+LexToken(PRINT,'print',58,916)
+LexToken(ID,'name',58,922)
+LexToken(NEWLINE,'\n\n\n\n\n\n\n\n\n',58,926)
+LexToken(PRINT,'print',67,935)
+LexToken(STRING,'"\\nCycle, if, else\\n"',67,941)
+LexToken(NEWLINE,'\n\n',67,963)
+LexToken(ID,'a',69,965)
+LexToken(ASS_OP,'=',69,966)
+LexToken(INTEGER,1,69,967)
+LexToken(NEWLINE,'\n',69,968)
+LexToken(WHILE,'while',70,969)
+LexToken(ID,'a',70,975)
+LexToken(LT,'<',70,976)
+LexToken(INTEGER,11,70,977)
+LexToken(DO,'do',70,980)
+LexToken(NEWLINE,'\n',70,982)
+LexToken(PRINT,'print',71,987)
+LexToken(ID,'a',71,993)
+LexToken(NEWLINE,'\n',71,994)
+LexToken(IF,'if',72,999)
+LexToken(ID,'a',72,1002)
+LexToken(MODULO,'%',72,1003)
+LexToken(INTEGER,2,72,1004)
+LexToken(EQ,'==',72,1006)
+LexToken(INTEGER,0,72,1009)
+LexToken(THEN,'then',72,1011)
+LexToken(NEWLINE,'\n',72,1015)
+LexToken(PRINT,'print',73,1024)
+LexToken(STRING,'" Romero"',73,1030)
+LexToken(NEWLINE,'\n',73,1040)
+LexToken(ELSE,'else',74,1045)
+LexToken(NEWLINE,'\n',74,1049)
+LexToken(PRINT,'print',75,1058)
+LexToken(STRING,'" Ramon"',75,1064)
+LexToken(NEWLINE,'\n',75,1073)
+LexToken(END,'end',76,1078)
+LexToken(NEWLINE,'\n',76,1081)
+LexToken(ID,'a',77,1086)
+LexToken(ASS_OP,'=',77,1088)
+LexToken(ID,'a',77,1090)
+LexToken(PLUS,'+',77,1092)
+LexToken(INTEGER,1,77,1094)
+LexToken(NEWLINE,'\n',77,1095)
+LexToken(PRINT,'print',78,1100)
+LexToken(STRING,'"\\n"',78,1106)
+LexToken(NEWLINE,'\n\n',78,1111)
+LexToken(END,'end',80,1113)
+LexToken(NEWLINE,'\n\n\n\n',80,1116)
+LexToken(PRINT,'print',84,1120)
+LexToken(STRING,'"\\nWhat is you name ? ->"',84,1126)
+LexToken(NEWLINE,'\n',84,1151)
+LexToken(ID,'name',85,1152)
+LexToken(ASS_OP,'=',85,1157)
+LexToken(INPUT_S,'gets.chomp',85,1159)
+LexToken(NEWLINE,'\n\n',85,1169)
+LexToken(PRINT,'print',87,1171)
+LexToken(STRING,'"Hola! "',87,1177)
+LexToken(PLUS,'+',87,1185)
+LexToken(ID,'name',87,1187)
+LexToken(PLUS,'+',87,1192)
+LexToken(STRING,'"\\n"',87,1193)
+LexToken(NEWLINE,'\n\n',87,1197)
+LexToken(PRINT,'print',89,1199)
+LexToken(STRING,'"Age? ->"',89,1205)
+LexToken(NEWLINE,'\n',89,1214)
+LexToken(ID,'n',90,1215)
+LexToken(ASS_OP,'=',90,1217)
+LexToken(INPUT_I,'gets.chomp.to_i',90,1219)
+LexToken(NEWLINE,'\n',90,1234)
+LexToken(ID,'n',91,1235)
+LexToken(ASS_OP,'=',91,1237)
+LexToken(ID,'n',91,1239)
+LexToken(PLUS,'+',91,1240)
+LexToken(INTEGER,1,91,1241)
+LexToken(NEWLINE,'\n\n',91,1242)
+LexToken(PRINT,'print',93,1244)
+LexToken(STRING,'"\\nnext year you will have "',93,1250)
+LexToken(NEWLINE,'\n',93,1279)
+LexToken(PRINT,'print',94,1280)
+LexToken(ID,'n',94,1286)
+LexToken(NEWLINE,'\n',94,1288)
+LexToken(PRINT,'print',95,1289)
+LexToken(STRING,'"\\n"',95,1295)
+LexToken(NEWLINE,'\n\n\n\n',95,1299)
+
+
+>>> PARSER ERRORS
 
 
 --------------------------------
+
+
+********************************
 
 
 --------------------------------
@@ -249,13 +447,13 @@ LexToken(STRING,'"\\n"',12,175)
 Sintactical Errors Test Cases
 
 
-TEST_CASE:: ./test_set2/1.rb
+ > TEST_CASE:: ./test_set2/1.rb
 
 
 >>> LEXER
 LexToken(NEWLINE,'\n',1,60)
 LexToken(NEWLINE,'\n\n\n\n',2,111)
-LexToken(NUMBER,'25',6,115)
+LexToken(INTEGER,25,6,115)
 LexToken(ASS_OP,'=',6,118)
 LexToken(NEWLINE,'\n',6,120)
 LexToken(ID,'my',7,121)
@@ -263,42 +461,47 @@ LexToken(ID,'num',7,124)
 LexToken(NEWLINE,'\n\n\n',7,128)
 
 
->>> PARSER
-Syntax error: Unexpected NUMBER(25) on line 6
+>>> PARSER ERRORS
+Syntax error: Unexpected INTEGER(25) on line 6
 
 
-TEST_CASE:: ./test_set2/2.rb
+ > TEST_CASE:: ./test_set2/2.rb
 
 
 >>> LEXER
 LexToken(NEWLINE,'\n',1,49)
-LexToken(NEWLINE,'\n\n',2,108)
-LexToken(ID,'my',4,110)
-LexToken(ID,'num',4,113)
-LexToken(NEWLINE,'\n',4,117)
-LexToken(ASS_OP,'=',5,118)
-LexToken(NEWLINE,'\n',5,119)
-LexToken(NUMBER,'25',6,120)
-LexToken(NEWLINE,'\n\n',6,122)
-LexToken(ID,'cons',8,124)
-LexToken(NEWLINE,'\n',8,129)
-LexToken(ASS_OP,'=',9,130)
-LexToken(NEWLINE,'\n',9,131)
-LexToken(NUMBER,'25',10,132)
-LexToken(NEWLINE,'\n\n',10,134)
-LexToken(ID,'stri',12,136)
-LexToken(NEWLINE,'\n',12,141)
-LexToken(ASS_OP,'=',13,142)
-LexToken(NEWLINE,'\n',13,143)
-LexToken(STRING,'"okoko"',14,144)
-LexToken(NEWLINE,'\n',14,151)
+LexToken(NEWLINE,'\n',2,108)
+LexToken(ID,'my',3,109)
+LexToken(ID,'num',3,112)
+LexToken(ASS_OP,'=',3,116)
+LexToken(INTEGER,25,3,118)
+LexToken(NEWLINE,'\n\n\n\n',3,120)
+LexToken(ID,'boolean',7,124)
+LexToken(ASS_OP,'=',7,132)
+LexToken(NEWLINE,'\n',7,134)
+LexToken(BOOL,'false',8,135)
+LexToken(NEWLINE,'\n\n\n',8,140)
+LexToken(CONSTANT,'Cons',11,143)
+LexToken(NEWLINE,'\n',11,148)
+LexToken(ASS_OP,'=',12,149)
+LexToken(NEWLINE,'\n',12,150)
+LexToken(INTEGER,25,13,151)
+LexToken(NEWLINE,'\n\n\n',13,153)
+LexToken(ID,'stri',16,156)
+LexToken(NEWLINE,'\n',16,161)
+LexToken(ASS_OP,'=',17,162)
+LexToken(NEWLINE,'\n',17,163)
+LexToken(STRING,'"okoko"',18,164)
+LexToken(NEWLINE,'\n',18,171)
 
 
->>> PARSER
-Syntax error: Unexpected ID(num) on line 4
+>>> PARSER ERRORS
+Syntax error: Unexpected ID(num) on line 3
+Syntax error: Unexpected NEWLINE(
+) on line 7
 
 
-TEST_CASE:: ./test_set2/3.rb
+ > TEST_CASE:: ./test_set2/3.rb
 
 
 >>> LEXER
@@ -306,8 +509,8 @@ LexToken(NEWLINE,'\n',1,39)
 LexToken(NEWLINE,'\n\n\n',2,89)
 LexToken(WHILE,'while',5,92)
 LexToken(LT,'<',5,99)
-LexToken(NUMBER,'1',5,101)
-LexToken(NUMBER,'2',5,103)
+LexToken(INTEGER,1,5,101)
+LexToken(INTEGER,2,5,103)
 LexToken(DO,'do',5,105)
 LexToken(NEWLINE,'\n',5,107)
 LexToken(PRINT,'print',6,113)
@@ -316,6 +519,6 @@ LexToken(NEWLINE,'\n',6,126)
 LexToken(END,'end',7,131)
 
 
->>> PARSER
+>>> PARSER ERRORS
 Syntax error: Unexpected LT(<) on line 5
 Syntax error: Unexpected END(end) on line 7

@@ -2,13 +2,13 @@ from ply import lex
 import sys
 
 # List of token identifiers
-tokens = ('GT', 'LE', 'PRINT', 'NUMBER', 'END',
+tokens = ('GT', 'LE', 'PRINT', 'INTEGER', 'END',
           'GE', 'LPAREN', 'STRING', 'TIMES', 'OR',
           'NE', 'DIVIDE', 'AND', 'IF',
           'MODULO', 'BOOL', 'DO', 'ELSE', 'MINUS',
           'SEMICOLON', 'EQ', 'INPUT_S', 'LT',
           'THEN', 'RPAREN', 'PLUS', 'WHILE', 'NOT',
-          'ID', 'ASS_OP', 'INPUT_I', 'NEWLINE')
+          'ID', 'ASS_OP', 'INPUT_I', 'NEWLINE', 'CONSTANT')
 
 
 #t_ELSE= r'else'
@@ -18,7 +18,6 @@ t_TIMES = r'\*'
 t_RPAREN = r'\)'
 #t_BOOL= r'true|false'
 t_MINUS = r'\-'
-t_ID = r'[A-Za-z_][a-zA-Z0-9_]*'
 #t_INPUT_S= r'gets.chomp'
 t_GE = r'\>\='
 t_NE = r'\!\='
@@ -37,6 +36,8 @@ t_MODULO = r'\%'
 t_PLUS = r'\+'
 #t_SEMICOLON = r'\;'
 t_ignore = '[ \t]'
+
+
 
 
 def t_SEMICOLON(t):
@@ -88,6 +89,10 @@ def t_DO(t):
     r'do'
     return t
 
+def t_PRINT(t):
+    r'print'
+    return t
+
 
 def t_comment(t):
     r'\#[^\n]*'
@@ -100,17 +105,6 @@ def t_comments(t):
     pass
 
 
-def t_BOOL(t):
-    r'true|false'
-    return t
-
-
-def t_NUMBER(t):
-    r'\d+(\.\d+)?'
-    #t.value = int(t.value)
-    return t
-
-
 def t_INPUT_I(t):
     r'gets.chomp.to_i'
     return t
@@ -121,9 +115,31 @@ def t_INPUT_S(t):
     return t
 
 
-def t_PRINT(t):
-    r'print'
+
+def t_BOOL(t):
+    r'true|false'
     return t
+
+
+def t_CONSTANT(t):
+    r'[A-Z][a-zA-Z0-9_]*'
+    return t
+
+
+def t_ID(t):
+    r'[a-z_][a-zA-Z0-9_]*'
+    return t
+
+
+
+
+
+def t_INTEGER(t):
+    r'\d+'
+    t.value = int(t.value)
+    return t
+
+
 
 
 def t_STRING(t):
