@@ -45,25 +45,14 @@
     + Parte de la gramatica, el resto en  ``` parser.py ```:
 
     ``` python
+    # Anidacion de statements
 
     '''
-    if_statement : IF expression THEN statements END
-                            | IF expression THEN statements ELSE statements END
-    '''
-
-    '''
-    while_statement : WHILE expression DO statements END
-    '''
-
-    '''
+   
     statements  : T statement T statements	
                 | T statement T 
     '''
 
-    '''
-    T   : T newline
-        |
-    '''
 
     ```
 
@@ -90,9 +79,19 @@ https://ruby-doc.org/docs/ruby-doc-bundle/UsersGuide/rg/constants.html
     - booleano
 
 6. Condicionales y ciclos:
-    Definidos ```parser.py```
-    - while x do y end
-    - if x then y end | if x then y else z end
+    + Definidos en ```parser.py```
+        
+    ``` python
+        '''
+        if_statement : IF expression THEN statements END
+                                | IF expression THEN statements ELSE statements END
+        '''
+
+        '''
+        while_statement : WHILE expression DO statements END
+        '''
+
+    ```
 
 ----
 
@@ -131,19 +130,23 @@ Si alguno de estos requisitos no se aplica a tu lenguaje de programación, prep
 
 ## Ejecucion y resultados
 
-**El script de bash ejecuta el lexer y parser de todos los casos de prueba definidos y el resultado del analisis estará en ``` results.txt ```**
+**El script de bash ejecuta el lexer y parser de todos los casos de prueba definidos y el resultado del analisis esta en ``` results.txt ```** (ya existente).
+
+A ejecutar:
 
 ``` bash
 
-$ ./run_all > results.txt
+$ ./run_all.sh > results.txt
 
 ```
 
 ### Notas
 
-+ Tras ejecutar las prubas, la identificación de tokens resulta exitosa al igual que la detección de errores sitacticos en el segundo set de pruebas.
++ Tras ejecutar las prubas, la identificación de tokens resulta exitosa.
++ De igual que la detección de errores se sintaxis en el segundo set de pruebas.
 
 
+----
 ### Ejecución Lexer
 
 ``` bash
@@ -165,5 +168,4 @@ $ python3 main_parser.py [ruby_file]
 ```
 #### Output
 
-Si hay errores de sintaxis el output se mostraran, en caso contrario, un ``` None ```
-
+Si hay errores de sintaxis el output se mostraran, en caso contrario estara vacío.
