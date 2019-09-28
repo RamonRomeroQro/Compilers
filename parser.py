@@ -1,6 +1,6 @@
 
 '''
-Declaration of productions
+Declaracion de producciones
 '''
 
 from ply import yacc
@@ -8,6 +8,7 @@ from lexer import tokens
 tokens = tokens
 
 
+# Analisis de presedencia
 # precedence = (
 #     ('left', 'OP_AND', 'OP_OR'),
 #     ('left', 'OP_ASSIGN'),
@@ -21,19 +22,14 @@ tokens = tokens
 # )
 
 
-# def p_factor(p):
-#     '''
-#     factor : lit_value
-#             | LPAREN expression RPAREN
-#             | ID
-#     '''
-
-
+def p_program(p):
+	'''program : statements
+	'''
+	
 def p_statements(p):
     '''statements : T statement T statements	
         | T statement T 
         '''
-
 
 def p_T(p):
     '''T : T NEWLINE

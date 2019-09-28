@@ -42,7 +42,7 @@
 
     + Debe haber una manera de crear estructuras anidadas como estructuras condicionales, ciclos o jerarquías (if, while)
 
-    + Gramática:
+    + Parte de la gramatica, el resto en  ``` parser.py ```:
 
     ``` python
 
@@ -70,7 +70,9 @@
 
 3. Variables y constantes: 
 
-Las constantes son identificadas son identificadas por que comienzan con una letra mayuscula [A-Z], sin embargo, permanece mutable y su comportamiento es homólogo al de las variables 
+Ruby es un lenguaje de tipado dinamico, por lo que no requiere de palabras reservadas como ```int``` o ```float```, unicamente que comiencen con una letra y sean seguidas de letras, numeros o underscore:  ```[a-z_][a-zA-Z0-9_]*' ```
+
+Las constantes son identificadas son identificadas por que comienzan con una letra mayuscula [A-Z], sin embargo, permanece mutable y su comportamiento es homólogo al de las variables: ``` r'[A-Z][a-zA-Z0-9_]*' ```
 
 
 > The Ruby interpreter does not actually enforce the constancy of constants.
@@ -79,14 +81,16 @@ https://ruby-doc.org/docs/ruby-doc-bundle/UsersGuide/rg/constants.html
 
 
 
-4. Cadenas de caracteres (strings)
+4. Cadenas de caracteres (strings), cadenas de caracteres.
 
 5. Tipos de datos (Ruby es un lenguaje de tipado dinamico):
+
     - numerico (int)
     - cadena de caracteres
     - booleano
 
-6. Condicionales y ciclos
+6. Condicionales y ciclos:
+    Definidos ```parser.py```
     - while x do y end
     - if x then y end | if x then y else z end
 

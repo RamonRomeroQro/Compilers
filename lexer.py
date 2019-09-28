@@ -1,3 +1,7 @@
+'''
+Declaracion de Tokens y sus regex para identificarlos
+'''
+
 from ply import lex
 import sys
 
