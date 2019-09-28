@@ -17,7 +17,7 @@
     along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
     Special thanks to: 
-    @Manchas2k4, @dabeaz and @eduardolarios.
+    @Manchas2k4 and @dabeaz (PLY)
     
 
 -----
@@ -40,7 +40,7 @@
     ```
 2. Estructuras anidadas: 
 
-    + Debe haber una manera de crear estructuras anidadas como estructuras condicionales, ciclos o jerarquías (if, while)
+    + Debe haber una manera de crear estructuras anidadas como estructuras condicionales, ciclos o jerarquías (if, while)
 
     + Parte de la gramatica, el resto en  ``` parser.py ```:
 
@@ -102,9 +102,9 @@ https://ruby-doc.org/docs/ruby-doc-bundle/UsersGuide/rg/constants.html
 En directorio ``` /test_set1/ ```
 
 1. Un programa sencillo con un comentario de una palabra.
-2. Un programa sencillo con un comentario de una línea.
-3. Un programa sencillo con la definición de una variable.
-4. Un programa sencillo con la definición de una constante.
+2. Un programa sencillo con un comentario de una línea.
+3. Un programa sencillo con la definición de una variable.
+4. Un programa sencillo con la definición de una constante.
 5. Un programa sencillo con cadenas.
 6. Un programa sencillo con variables de todos los tipos de datos.
 7. Un programa sencillo con un ciclo y una condicional.
@@ -118,15 +118,15 @@ En directorio ``` /test_set1/ ```
 En directorio ``` /test_set2/ ```
 
 
-También debes crear los siguientes casos de prueba, todos deben definir:
+También debes crear los siguientes casos de prueba, todos deben definir:
 
-1. Un programa sencillo con la definición de una variable en el lugar incorrecto y en el orden incorrecto.
-2. Un programa sencillo que utiliza una cadena, variable y constante en un lugar que no está permitido.
-3. Un programa sencillo con un ciclo definido pero usando una gramática incorrecta.
+1. Un programa sencillo con la definición de una variable en el lugar incorrecto y en el orden incorrecto.
+2. Un programa sencillo que utiliza una cadena, variable y constante en un lugar que no está permitido.
+3. Un programa sencillo con un ciclo definido pero usando una gramática incorrecta.
 
-Todos los tokens no definidos en la definición formal de tu lenguaje deberán generar un error.
+Todos los tokens no definidos en la definición formal de tu lenguaje deberán generar un error.
 Todos los errores contenidos en una entrada deben estar presentes.
-Si alguno de estos requisitos no se aplica a tu lenguaje de programación, prepárate para explicar por qué.
+Si alguno de estos requisitos no se aplica a tu lenguaje de programación, prepárate para explicar por qué.
 
 ## Ejecucion y resultados
 
