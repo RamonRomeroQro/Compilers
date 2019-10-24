@@ -45,8 +45,6 @@ t_PLUS = r'\+'
 t_ignore = '[ \t]'
 
 
-
-
 def t_SEMICOLON(t):
     r'\;'
     pass
@@ -96,6 +94,7 @@ def t_DO(t):
     r'do'
     return t
 
+
 def t_PRINT(t):
     r'print'
     return t
@@ -122,7 +121,6 @@ def t_INPUT_S(t):
     return t
 
 
-
 def t_BOOL(t):
     r'true|false'
     return t
@@ -138,15 +136,10 @@ def t_ID(t):
     return t
 
 
-
-
-
 def t_INTEGER(t):
     r'\d+'
     t.value = int(t.value)
     return t
-
-
 
 
 def t_STRING(t):
