@@ -168,4 +168,126 @@ $ python3 main_parser.py [ruby_file]
 ```
 #### Output
 
-Si hay errores de sintaxisse mostraran en el outout
+Si hay errores de sintaxis mostraran en el outout
+
+
+----
+
+## Segunda Entrega
+
+### TestSet3
+
+En directorio ``` /test_set3/ ```
+
+Todos los casos de prueba previo todavía son válidos. Ademas, espero ver el AST (Abstract Syntax Tree)de estos casos:
+1.  Un programa sencillo con la definición de una variable.
+2.  Un programa sencillo con la definición de una constante.
+3.  Un programa sencillo con un ciclo y una condicional. Un programa con todas las instrucciones defini-das.
+
+### TestSet4
+
+1. Un programa sencillo con la definición de una variable en el lugar incorrecto y en el orden incorrecto.
+2.  Un programa sencillo que utiliza una cadena, variable y constante en un lugar que no está permitido.
+3.  Un programa sencillo con un ciclo definido pero usando una gramática incorrecta.
+
+### TestSet5
+
++ Los siguientes casos nuevos deben de pasar (aún cuando contengas entradas incorrectas).Asignar el valor a una variable que no corresponde con su tipo. Por ejemplo:
+
+    ``` c
+    int a;
+    a = "hello";
+    ```
+
++ Llamar un método usando una clase que no contenga tal método. Por ejemplo:
+
+    ``` c++
+    class Rectangle {
+        private: 
+            int width, height;
+        public:
+            void set_values(int,int);
+            int area();
+        };
+        
+        int main() {
+            Rectangle rect;
+            rect.init(); //THIS METHOD WAS NOT DEFINED...
+            return 0;
+            }
+    ````
+
++ Usar una variable fuera de su alcance. Por ejemplo:
+``` c++
+    int max(int num1,int num2){
+    int result;
+    if (num1 > num2) {
+        result = num1;
+    }
+    else {
+        result = num2;
+    }
+    return result;
+    }
+    // ...
+    printf("Max value is : %d\n", result ); //result is not global variable
+
+```
+
+## Casos de prueba
+
+En directorio ``` /test_set2/ ```
+
+
+También debes crear los siguientes casos de prueba, todos deben definir:
+
+1. Un programa sencillo con la definición de una variable en el lugar incorrecto y en el orden incorrecto.
+2. Un programa sencillo que utiliza una cadena, variable y constante en un lugar que no está permitido.
+3. Un programa sencillo con un ciclo definido pero usando una gramática incorrecta.
+
+Todos los tokens no definidos en la definición formal de tu lenguaje deberán generar un error.
+Todos los errores contenidos en una entrada deben estar presentes.
+Si alguno de estos requisitos no se aplica a tu lenguaje de programación, prepárate para explicar por qué.
+
+## Ejecucion y resultados
+
+**El script de bash ejecuta el lexer y parser de todos los casos de prueba definidos y el resultado del analisis esta en ``` results.txt ```** (ya existente).
+
+A ejecutar:
+
+``` bash
+
+$ ./run_all.sh > results.txt
+
+```
+
+### Notas
+
++ Tras ejecutar las prubas, la identificación de tokens resulta exitosa.
++ De igual que la detección de errores se sintaxis en el segundo set de pruebas.
+
+
+----
+### Ejecución Lexer
+
+``` bash
+
+$ python3 main_lexer.py [ruby_file]
+
+```
+#### Output
+
+El output sera un listado de todos los tokens
+
+
+### Ejecución Parser
+
+``` bash
+
+$ python3 main_parser.py [ruby_file]
+
+```
+#### Output
+
+Si hay errores de sintaxis mostraran en el outout
+

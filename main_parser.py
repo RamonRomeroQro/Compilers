@@ -24,7 +24,6 @@ def main(argv):
     stack = [result]
     while stack:
         n=stack.pop()
-        
         if n:
             if n.leaf and not isinstance(n.leaf,type(result)):
                 print(n.leaf)
