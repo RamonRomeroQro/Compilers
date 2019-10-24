@@ -21,6 +21,11 @@ LexToken(NEWLINE,'\n\n',3,81)
 
 
 >>> PARSER ERRORS
+None
+<parser.Node object at 0x10355da20>
+<parser.Node object at 0x10355d9e8>
+<parser.Node object at 0x10355da58>
+<parser.Node object at 0x10355d898>
 
 
 > TEST_CASE:  ./test_set1/2.rb
@@ -34,6 +39,11 @@ LexToken(NEWLINE,'\n\n',3,94)
 
 
 >>> PARSER ERRORS
+None
+<parser.Node object at 0x10355d8d0>
+<parser.Node object at 0x10355d898>
+<parser.Node object at 0x10355d908>
+<parser.Node object at 0x10355d748>
 
 
 > TEST_CASE:  ./test_set1/3.rb
@@ -51,6 +61,14 @@ LexToken(NEWLINE,'\n',5,76)
 
 
 >>> PARSER ERRORS
+None
+<parser.Node object at 0x102c5d7f0>
+<parser.Node object at 0x102c5d898>
+<parser.Node object at 0x102c5da90>
+<parser.Node object at 0x102c5d8d0>
+<parser.Node object at 0x102c5d978>
+<parser.Node object at 0x102c5da20>
+<parser.Node object at 0x102b11ba8>
 
 
 > TEST_CASE:  ./test_set1/4.rb
@@ -71,6 +89,18 @@ LexToken(NEWLINE,'\n',5,297)
 
 
 >>> PARSER ERRORS
+None
+<parser.Node object at 0x10355d7f0>
+<parser.Node object at 0x10355d898>
+<parser.Node object at 0x10355da90>
+<parser.Node object at 0x10355d8d0>
+None
+<parser.Node object at 0x10355dac8>
+<parser.Node object at 0x10355db00>
+<parser.Node object at 0x10355d978>
+<parser.Node object at 0x10355dc50>
+<parser.Node object at 0x10355dba8>
+<parser.Node object at 0x103411ba8>
 
 
 > TEST_CASE:  ./test_set1/5.rb
@@ -89,6 +119,22 @@ LexToken(ID,'full_name',4,76)
 
 
 >>> PARSER ERRORS
+None
+<parser.Node object at 0x10345d860>
+<parser.Node object at 0x10345d828>
+None
+<parser.Node object at 0x10345d940>
+<parser.Node object at 0x10345d898>
+<parser.Node object at 0x10345d9b0>
+<parser.Node object at 0x10345dac8>
+<parser.Node object at 0x10345da90>
+<parser.Node object at 0x10345db70>
+<parser.Node object at 0x10345da58>
+<parser.Node object at 0x10345dbe0>
+<parser.Node object at 0x10345d7f0>
+<parser.Node object at 0x10345dc88>
+<parser.Node object at 0x10345d908>
+<parser.Node object at 0x103311ba8>
 
 
 > TEST_CASE:  ./test_set1/6.rb
@@ -157,6 +203,85 @@ LexToken(NEWLINE,'\n\n\n\n\n',22,274)
 
 
 >>> PARSER ERRORS
+None
+<parser.Node object at 0x10345e8d0>
+<parser.Node object at 0x10345e898>
+None
+<parser.Node object at 0x10345e9b0>
+<parser.Node object at 0x10345e7b8>
+None
+<parser.Node object at 0x10345eb00>
+<parser.Node object at 0x10345e908>
+<parser.Node object at 0x10345eda0>
+<parser.Node object at 0x10345ecf8>
+<parser.Node object at 0x10345eac8>
+<parser.Node object at 0x10345edd8>
+<parser.Node object at 0x10345ee80>
+<parser.Node object at 0x10345ee48>
+<parser.Node object at 0x10345eef0>
+<parser.Node object at 0x10345ee10>
+<parser.Node object at 0x10345ef60>
+<parser.Node object at 0x10345e978>
+None
+<parser.Node object at 0x10347d0f0>
+<parser.Node object at 0x10345ef98>
+None
+<parser.Node object at 0x10347d208>
+<parser.Node object at 0x10345eba8>
+<parser.Node object at 0x10347d320>
+<parser.Node object at 0x10347d2b0>
+None
+<parser.Node object at 0x10347d3c8>
+<parser.Node object at 0x10347d390>
+<parser.Node object at 0x10345ef28>
+<parser.Node object at 0x10347d470>
+<parser.Node object at 0x10347d358>
+<parser.Node object at 0x10347d4a8>
+<parser.Node object at 0x10347d080>
+None
+<parser.Node object at 0x10347d438>
+<parser.Node object at 0x10347d198>
+None
+<parser.Node object at 0x10347d6d8>
+<parser.Node object at 0x10347d6a0>
+<parser.Node object at 0x10347d630>
+<parser.Node object at 0x10347d780>
+<parser.Node object at 0x10347d668>
+<parser.Node object at 0x10347d7b8>
+<parser.Node object at 0x10347d518>
+<parser.Node object at 0x10347d8d0>
+<parser.Node object at 0x10347d400>
+None
+<parser.Node object at 0x10347d748>
+<parser.Node object at 0x10347d940>
+<parser.Node object at 0x10347db70>
+<parser.Node object at 0x10347da90>
+None
+<parser.Node object at 0x10347db38>
+<parser.Node object at 0x10347dbe0>
+<parser.Node object at 0x10347de48>
+<parser.Node object at 0x10347dd30>
+None
+<parser.Node object at 0x10347de10>
+<parser.Node object at 0x10347deb8>
+<parser.Node object at 0x103480198>
+<parser.Node object at 0x10347df98>
+<parser.Node object at 0x103480048>
+<parser.Node object at 0x1034800b8>
+<parser.Node object at 0x10347df28>
+<parser.Node object at 0x10347dda0>
+<parser.Node object at 0x10347dc50>
+<parser.Node object at 0x10347db00>
+<parser.Node object at 0x10347d9b0>
+<parser.Node object at 0x10347d898>
+<parser.Node object at 0x10347d5c0>
+<parser.Node object at 0x10347d278>
+<parser.Node object at 0x10347d0b8>
+<parser.Node object at 0x10345efd0>
+<parser.Node object at 0x10345ec18>
+<parser.Node object at 0x10345ebe0>
+<parser.Node object at 0x10345eb38>
+<parser.Node object at 0x103320ba8>
 
 
 > TEST_CASE:  ./test_set1/7.rb
@@ -211,6 +336,68 @@ LexToken(END,'end',15,179)
 
 
 >>> PARSER ERRORS
+None
+<parser.Node object at 0x10355e908>
+<parser.Node object at 0x10355e748>
+None
+<parser.Node object at 0x10355ea90>
+<parser.Node object at 0x10355e978>
+<parser.Node object at 0x10355ec50>
+<parser.Node object at 0x10355ea20>
+<parser.Node object at 0x10355e8d0>
+None
+<parser.Node object at 0x10355ed68>
+<parser.Node object at 0x10355ed30>
+<parser.Node object at 0x10355ec18>
+<parser.Node object at 0x10355ee10>
+<parser.Node object at 0x10355ecf8>
+<parser.Node object at 0x10355eba8>
+<parser.Node object at 0x10355eef0>
+<parser.Node object at 0x10357c128>
+None
+<parser.Node object at 0x10357c198>
+<parser.Node object at 0x10357c160>
+<parser.Node object at 0x10355efd0>
+<parser.Node object at 0x10355ef98>
+None
+<parser.Node object at 0x10357c240>
+<parser.Node object at 0x10357c0f0>
+<parser.Node object at 0x10357c278>
+<parser.Node object at 0x10357c358>
+<parser.Node object at 0x10357c2b0>
+None
+<parser.Node object at 0x10357c4a8>
+<parser.Node object at 0x10357c390>
+<parser.Node object at 0x10357c470>
+None
+<parser.Node object at 0x10357c630>
+<parser.Node object at 0x10357c208>
+<parser.Node object at 0x10357c5f8>
+<parser.Node object at 0x10357c3c8>
+<parser.Node object at 0x10357c048>
+<parser.Node object at 0x10357c6a0>
+<parser.Node object at 0x10357c518>
+None
+<parser.Node object at 0x10357c7b8>
+<parser.Node object at 0x10357c780>
+<parser.Node object at 0x10357c400>
+<parser.Node object at 0x10357c828>
+<parser.Node object at 0x10357c4e0>
+<parser.Node object at 0x10357c860>
+<parser.Node object at 0x10357c2e8>
+None
+<parser.Node object at 0x10357c7f0>
+<parser.Node object at 0x10357c8d0>
+<parser.Node object at 0x10357c748>
+<parser.Node object at 0x10357c978>
+<parser.Node object at 0x10357c588>
+<parser.Node object at 0x10357c0b8>
+None
+<parser.Node object at 0x10355e860>
+<parser.Node object at 0x10355ecf8>
+<parser.Node object at 0x10355ee80>
+<parser.Node object at 0x10355ebe0>
+<parser.Node object at 0x103420ba8>
 
 
 > TEST_CASE:  ./test_set1/8.rb
@@ -257,6 +444,60 @@ LexToken(NEWLINE,'\n',13,180)
 
 
 >>> PARSER ERRORS
+None
+<parser.Node object at 0x10355d908>
+<parser.Node object at 0x10355d748>
+<parser.Node object at 0x10355db38>
+<parser.Node object at 0x10355dbe0>
+<parser.Node object at 0x10355d9b0>
+None
+<parser.Node object at 0x10355dac8>
+<parser.Node object at 0x10355d978>
+<parser.Node object at 0x10355dc18>
+<parser.Node object at 0x10355dd68>
+None
+<parser.Node object at 0x10355de80>
+<parser.Node object at 0x10355de48>
+<parser.Node object at 0x10355dd30>
+<parser.Node object at 0x10355deb8>
+<parser.Node object at 0x10355de10>
+<parser.Node object at 0x10355dcf8>
+<parser.Node object at 0x10355dfd0>
+<parser.Node object at 0x10355d8d0>
+None
+<parser.Node object at 0x10355def0>
+<parser.Node object at 0x10355df60>
+<parser.Node object at 0x10357b208>
+<parser.Node object at 0x10357b278>
+<parser.Node object at 0x10355df28>
+<parser.Node object at 0x10357b390>
+<parser.Node object at 0x10357b320>
+None
+<parser.Node object at 0x10357b438>
+<parser.Node object at 0x10357b400>
+<parser.Node object at 0x10355ddd8>
+<parser.Node object at 0x10357b4e0>
+<parser.Node object at 0x10357b3c8>
+<parser.Node object at 0x10357b518>
+<parser.Node object at 0x10357b128>
+None
+<parser.Node object at 0x10357b470>
+<parser.Node object at 0x10357b588>
+<parser.Node object at 0x10357b7b8>
+<parser.Node object at 0x10357b6d8>
+None
+<parser.Node object at 0x10357b780>
+<parser.Node object at 0x10357b828>
+<parser.Node object at 0x10357b4a8>
+<parser.Node object at 0x10357b898>
+<parser.Node object at 0x10357b748>
+<parser.Node object at 0x10357b630>
+<parser.Node object at 0x10357b2e8>
+<parser.Node object at 0x10357b160>
+<parser.Node object at 0x10357b080>
+<parser.Node object at 0x10355df98>
+<parser.Node object at 0x10355dc50>
+<parser.Node object at 0x103411ba8>
 
 
 > TEST_CASE:  ./test_set1/9.rb
@@ -443,6 +684,240 @@ LexToken(NEWLINE,'\n\n\n\n',95,1299)
 
 
 >>> PARSER ERRORS
+None
+<parser.Node object at 0x10355e8d0>
+<parser.Node object at 0x10355e898>
+None
+<parser.Node object at 0x10355ea58>
+<parser.Node object at 0x103420ba8>
+None
+<parser.Node object at 0x10355ed30>
+<parser.Node object at 0x10355ec50>
+<parser.Node object at 0x10355ee48>
+<parser.Node object at 0x10355ebe0>
+None
+<parser.Node object at 0x10355efd0>
+<parser.Node object at 0x10355ef60>
+<parser.Node object at 0x10357c128>
+<parser.Node object at 0x10355eef0>
+None
+<parser.Node object at 0x10357c0f0>
+<parser.Node object at 0x10355edd8>
+None
+<parser.Node object at 0x10357c320>
+<parser.Node object at 0x10357c3c8>
+None
+<parser.Node object at 0x10357c278>
+<parser.Node object at 0x10357c358>
+<parser.Node object at 0x10357c4e0>
+<parser.Node object at 0x10357c588>
+<parser.Node object at 0x10357c550>
+<parser.Node object at 0x10357c630>
+<parser.Node object at 0x10357c518>
+<parser.Node object at 0x10357c6a0>
+<parser.Node object at 0x10357c2e8>
+None
+<parser.Node object at 0x10357c748>
+<parser.Node object at 0x10357c7b8>
+None
+<parser.Node object at 0x10357c710>
+<parser.Node object at 0x10357c860>
+None
+<parser.Node object at 0x10357c9b0>
+<parser.Node object at 0x10357c4a8>
+<parser.Node object at 0x10357cb70>
+<parser.Node object at 0x10357cac8>
+<parser.Node object at 0x10357c908>
+<parser.Node object at 0x10357cba8>
+<parser.Node object at 0x10357cc50>
+<parser.Node object at 0x10357cc18>
+<parser.Node object at 0x10357ccc0>
+<parser.Node object at 0x10357cbe0>
+<parser.Node object at 0x10357cd30>
+<parser.Node object at 0x10357c5c0>
+None
+<parser.Node object at 0x10357ce80>
+<parser.Node object at 0x10357cd68>
+None
+<parser.Node object at 0x10357cf98>
+<parser.Node object at 0x10357cc88>
+<parser.Node object at 0x1035800f0>
+<parser.Node object at 0x103580080>
+None
+<parser.Node object at 0x103580198>
+<parser.Node object at 0x103580160>
+<parser.Node object at 0x10357ce10>
+<parser.Node object at 0x103580240>
+<parser.Node object at 0x103580128>
+<parser.Node object at 0x103580278>
+<parser.Node object at 0x10357ccf8>
+None
+<parser.Node object at 0x103580208>
+<parser.Node object at 0x10357cf28>
+None
+<parser.Node object at 0x1035804a8>
+<parser.Node object at 0x103580470>
+<parser.Node object at 0x103580400>
+<parser.Node object at 0x103580550>
+<parser.Node object at 0x103580438>
+<parser.Node object at 0x103580588>
+<parser.Node object at 0x1035802e8>
+<parser.Node object at 0x1035806a0>
+<parser.Node object at 0x1035801d0>
+None
+<parser.Node object at 0x103580518>
+<parser.Node object at 0x103580710>
+<parser.Node object at 0x103580940>
+<parser.Node object at 0x103580860>
+None
+<parser.Node object at 0x103580908>
+<parser.Node object at 0x1035809b0>
+<parser.Node object at 0x103580c18>
+<parser.Node object at 0x103580b00>
+None
+<parser.Node object at 0x103580be0>
+<parser.Node object at 0x103580c88>
+<parser.Node object at 0x103580ef0>
+<parser.Node object at 0x103580dd8>
+None
+<parser.Node object at 0x103580eb8>
+<parser.Node object at 0x103580f60>
+None
+<parser.Node object at 0x103584208>
+<parser.Node object at 0x103580d68>
+<parser.Node object at 0x103584320>
+<parser.Node object at 0x103584198>
+<parser.Node object at 0x103584128>
+None
+<parser.Node object at 0x103584400>
+<parser.Node object at 0x1035843c8>
+<parser.Node object at 0x103584358>
+<parser.Node object at 0x1035844a8>
+<parser.Node object at 0x103584390>
+<parser.Node object at 0x1035842e8>
+<parser.Node object at 0x103584588>
+<parser.Node object at 0x103584780>
+None
+<parser.Node object at 0x1035847f0>
+<parser.Node object at 0x1035847b8>
+<parser.Node object at 0x103584668>
+<parser.Node object at 0x103584630>
+None
+<parser.Node object at 0x103584898>
+<parser.Node object at 0x103584748>
+<parser.Node object at 0x1035848d0>
+<parser.Node object at 0x1035849b0>
+<parser.Node object at 0x103584908>
+None
+<parser.Node object at 0x103584b00>
+<parser.Node object at 0x1035849e8>
+<parser.Node object at 0x103584ac8>
+None
+<parser.Node object at 0x103584c88>
+<parser.Node object at 0x103584860>
+<parser.Node object at 0x103584c50>
+<parser.Node object at 0x103584a20>
+<parser.Node object at 0x1035846a0>
+<parser.Node object at 0x103584cf8>
+<parser.Node object at 0x103584b70>
+None
+<parser.Node object at 0x103584e10>
+<parser.Node object at 0x103584dd8>
+<parser.Node object at 0x103584a58>
+<parser.Node object at 0x103584e80>
+<parser.Node object at 0x103584b38>
+<parser.Node object at 0x103584eb8>
+<parser.Node object at 0x103584940>
+None
+<parser.Node object at 0x103584e48>
+<parser.Node object at 0x103584f28>
+<parser.Node object at 0x103584da0>
+<parser.Node object at 0x103584fd0>
+<parser.Node object at 0x103584be0>
+<parser.Node object at 0x103584710>
+None
+<parser.Node object at 0x103584048>
+None
+<parser.Node object at 0x103584cc0>
+<parser.Node object at 0x103584550>
+<parser.Node object at 0x103584f60>
+<parser.Node object at 0x103584588>
+<parser.Node object at 0x103584400>
+None
+<parser.Node object at 0x103584438>
+<parser.Node object at 0x103584128>
+<parser.Node object at 0x103584be0>
+<parser.Node object at 0x1035846d8>
+None
+<parser.Node object at 0x1035849b0>
+<parser.Node object at 0x103584908>
+<parser.Node object at 0x103584a20>
+<parser.Node object at 0x1035848d0>
+<parser.Node object at 0x103584d30>
+<parser.Node object at 0x1035846a0>
+<parser.Node object at 0x103584780>
+<parser.Node object at 0x103584d68>
+None
+<parser.Node object at 0x103584748>
+<parser.Node object at 0x103584630>
+<parser.Node object at 0x103584c88>
+<parser.Node object at 0x103584fd0>
+<parser.Node object at 0x103584b00>
+<parser.Node object at 0x103584e80>
+<parser.Node object at 0x103584ef0>
+None
+<parser.Node object at 0x103584a58>
+<parser.Node object at 0x103584cf8>
+<parser.Node object at 0x103584898>
+<parser.Node object at 0x103584da0>
+<parser.Node object at 0x103584b70>
+<parser.Node object at 0x103584f28>
+<parser.Node object at 0x103584ba8>
+None
+<parser.Node object at 0x103584dd8>
+<parser.Node object at 0x103584f98>
+<parser.Node object at 0x10358a1d0>
+<parser.Node object at 0x103584e10>
+None
+<parser.Node object at 0x10358a198>
+<parser.Node object at 0x10358a240>
+<parser.Node object at 0x10358a0f0>
+<parser.Node object at 0x10358a2b0>
+<parser.Node object at 0x103584860>
+<parser.Node object at 0x10358a048>
+<parser.Node object at 0x103584eb8>
+<parser.Node object at 0x103584a90>
+<parser.Node object at 0x1035847f0>
+<parser.Node object at 0x1035845c0>
+<parser.Node object at 0x103584198>
+<parser.Node object at 0x1035844a8>
+<parser.Node object at 0x1035842b0>
+<parser.Node object at 0x103584160>
+<parser.Node object at 0x103580fd0>
+<parser.Node object at 0x103580e48>
+<parser.Node object at 0x103580cf8>
+<parser.Node object at 0x103580b70>
+<parser.Node object at 0x103580a20>
+<parser.Node object at 0x1035808d0>
+<parser.Node object at 0x103580780>
+<parser.Node object at 0x103580668>
+<parser.Node object at 0x103580390>
+<parser.Node object at 0x103580048>
+<parser.Node object at 0x10357ca20>
+<parser.Node object at 0x10357cda0>
+<parser.Node object at 0x10357ca90>
+<parser.Node object at 0x10357c978>
+<parser.Node object at 0x10357c898>
+<parser.Node object at 0x10357c6d8>
+<parser.Node object at 0x10357c470>
+<parser.Node object at 0x10357c198>
+<parser.Node object at 0x10357c208>
+<parser.Node object at 0x10355ef98>
+<parser.Node object at 0x10355e7b8>
+<parser.Node object at 0x10355eda0>
+<parser.Node object at 0x10355eac8>
+<parser.Node object at 0x10355e908>
+<parser.Node object at 0x10355e748>
 
 
 --------------------------------
@@ -531,4 +1006,9 @@ LexToken(END,'end',7,131)
 
 >>> PARSER ERRORS
 Syntax error: Unexpected LT(<) on line 5
+None
+<parser.Node object at 0x10355e908>
+<parser.Node object at 0x10355e7b8>
+<parser.Node object at 0x10355e748>
+<parser.Node object at 0x103420ba8>
 Syntax error: Unexpected END(end) on line 7

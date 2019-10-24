@@ -21,21 +21,21 @@ tokens = tokens
 #     ('right', 'LBRACKET')
 # )
 
-# class Node:
-#      def __init__(self,type,children=None,leaf=None):
-#           self.type = type
-#           if children:
-#                self.children = children
-#           else:
-#                self.children = [ ]
-#           self.leaf = leaf
+class Node:
+     def __init__(self,type,children=None,leaf=None):
+          self.type = type
+          if children:
+               self.children = children
+          else:
+               self.children = [ ]
+          self.leaf = leaf
  	 
 
 # Programa tiene statements
 def p_program(p):
     '''program : statements
     '''
-    p[0]=('program', p[1])
+    p[0]=Node('program', p[1])
 
 # Statements, pueden ser uno o mas (bloques)
 
@@ -44,23 +44,12 @@ def p_statements(p):
     '''statements : T statement T statements	
                     | T statement T 
     '''
-    if(len(p)==5):
-        if(p[2] is None):
-            p[2]=''
-        if(p[4] is None):
-            p[4]=''		
+    if(len(p)==5):	
         
-        p[0]=("statements+statement",p[2],'\n' ,p[4])
+        p[0]=Node("statements+statement", [p[x] for x in range(1,5)] )
         
     elif(len(p)==4):
-        if(p[2] is None):
-            p[2]=''
-        if('\n' in p[2]):
-            p[0]=p[2]
-        else:
-            p[0]=p[2]
-        
-        p[0]=("single_statement",p[2])
+        p[0]=Node("single_statement",[p[x] for x in range(1,4)] )
     
 # separados por saltos de lineas
 
@@ -83,7 +72,7 @@ def p_statement(p):
                 | input_statement
                 | cons_declaration
     '''
-    p[0]=("statement",p[1])
+    p[0]=Node("statement",[p[1]])
 
 ############### HASTA AQUI
 
@@ -94,7 +83,7 @@ def p_input_statement(p):
     input_statement : INPUT_I
                     | INPUT_S
     '''
-    p[0]=("input_statement", p[1])
+    p[0]=Node("input_statement", [],p[1])
 
 # imprimir a consola
 
@@ -105,8 +94,9 @@ def p_print_statement(p):
                     | PRINT expression 
                     | PRINT ID 
                     | PRINT CONSTANT 
-    '''
-    p[0] = ('print_statement', p[2])
+                   
+    '''    
+    p[0]=Node("print_statement", [p[2]], p[1] )
 
 # declaracion de variable
 
@@ -119,7 +109,7 @@ def p_var_declaration(p):
                     | ID ASS_OP CONSTANT 
                     | ID ASS_OP input_statement 
     '''
-    p[0]=('var_declaration', p[1],"=",p[3])
+    p[0]=Node('var_declaration', [p[3]], p[1]+p[2] )
 # declaracion de constante
 
 
@@ -131,7 +121,7 @@ def p_cons_declaration(p):
                     | CONSTANT ASS_OP CONSTANT
                     | CONSTANT ASS_OP input_statement 
     '''
-    p[0]=('cons_declaration', p[1],"=",p[3])
+    p[0]=Node('var_declaration', [p[3]], p[1]+p[2] )
 
 # Estructura de if, que permite anidacion gracias a los statements (block)
 
@@ -142,10 +132,10 @@ def p_if_statement(p):
                          | IF expression THEN statements ELSE statements END
     '''
     if len(p)==6:
-        p[0]=('if_statement', 'if',p[2],"then",p[4],"end")
+        p[0]=Node('if_statement', [p[2],p[4]], [p[1], p[3], p[5]])
 
     elif len(p)==8:
-        p[0]=('if_else_statement', 'if',p[2],"then",p[4],"else",p[6],"end")
+        p[0]=Node('if_else_statement', [p[2],p[4],p[6]],[p[1],p[3],p[5], p[7]])
 
 
 # while de if, que permite anidacion gracias a los statements (block)
@@ -156,7 +146,7 @@ def p_while_statement(p):
     while_statement : WHILE expression DO statements END
     '''
     if len(p)==5:
-        p[0]=("while_statement", "while", p[2], "do", p[4], "end")
+        p[0]=Node("while_statement", [p[2],p[4]], [p[1], p[3], p[5]])
 
 # expresiones , mathematicas y relacionales (booleanas)
 
@@ -168,13 +158,11 @@ def p_expression(p):
                     | relational_expression
     '''
     if len(p)==2:
-        p[0]=("expression", p[1])
+        p[0]=Node("expression", p[1])
     elif len(p)==3:
         if p[1]=='-':
-            p[0]=("expression", '-',p[1])
-        else:
-            p[0]=("expression",  p[1])
-
+            p[0]=Node("expression", [p[2]], p[1]  )
+       
 
 
 # romper expresion matematica en suma y resta (binarias)
@@ -186,11 +174,11 @@ def p_math_expression(p):
     '''
     if len(p)==4:
         if p[2]=='+':
-            p[0]=('math_expression', p[1],'+',p[3])
+            p[0]=Node('math_expression', [p[1],p[3]], p[2])
         elif p[2]=='-':
-            p[0]=('math_expression', p[1],'-',p[3])
+            p[0]=Node('math_expression', [p[1],p[3]], p[2])
     elif len(p)==2:
-        p[0]=('math_expression', p[1])
+        p[0]=Node('math_expression', [p[1]])
 
 
 # expresiones booleanas
@@ -209,24 +197,24 @@ def p_relational_expression(p):
     '''
     if len(p)==4:
         if p[2]=='and':
-            p[0]=('relational_expression', p[1],"and",p[3])
+            p[0]=Node('relational_expression', [p[3],p[1]],"and")
         elif p[2]=="or":
-            p[0]=('relational_expression', p[1],"or",p[3])
+            p[0]=Node('relational_expression', [p[3],p[1]],"or")
         elif p[2]==">":
-            p[0]=('relational_expression', p[1],">",p[3])
+            p[0]=Node('relational_expression', [p[3],p[1]],">")
         elif p[2]=="<":
-            p[0]=('relational_expression', p[1],"<",p[3])
+            p[0]=Node('relational_expression', [p[3],p[1]],"<")
         elif p[2]==">=":
-            p[0]=('relational_expression', p[1],">=",p[3])
+            p[0]=Node('relational_expression', [p[3],p[1]],">=")
         elif p[2]=="<=":
-            p[0]=('relational_expression', p[1],"<=",p[3])
+            p[0]=Node('relational_expression', [p[3],p[1]],"<=")
         elif p[2]=="!=":
-            p[0]=('relational_expression', p[1],"!=",p[3])
+            p[0]=Node('relational_expression', [p[3],p[1]],"!=")
         elif p[2]=="==":
-            p[0]=('relational_expression', p[1],"==",p[3]) 
+            p[0]=Node('relational_expression', [p[3],p[1]],"==") 
     elif len(p)==3:
         if p[1]=="not":
-            p[0]=('relational_expression', 'not',p[2]) 
+            p[0]=Node('relational_expression', [p[2]],'not') 
 
 # expresiones matematicas de *%/ (binarias)
 
@@ -239,14 +227,14 @@ def p_term(p):
             | factor
     '''
     if len(p)==2:
-        p[0]=("term", p[1])
+        p[0]=Node("term", [p[1]])
     elif len(p)==4:
         if p[2]=="*":
-            p[0]=("term", p[1],"*",p[3])
+            p[0]=Node("term", [p[1],p[3]],"*")
         elif p[2]=="/":
-            p[0]=("term", p[1],"/",p[3])
+            p[0]=Node("term", [p[1],p[3]],"/")
         elif p[2]=="%":
-            p[0]=("term", p[1],"%",p[3])
+            p[0]=Node("term", [p[1],p[3]],"%")
 
 
 
@@ -259,9 +247,9 @@ def p_factor(p):
             | CONSTANT
     '''
     if len(p)==2:
-        p[0]=("factor",p[1])
+        p[0]=Node("factor",[p[1]])
     elif len(p)==4:
-        p[0]=("factor", '(',p[2],')')
+        p[0]=Node("factor", [p[2]], ['(',')'])
 
 
 
@@ -271,7 +259,7 @@ def p_lit_value(p):  # uso de valores literales
                 | STRING 
                 | BOOL 
     '''
-    p[0]==("lit_value",p[1])
+    p[0]==Node("lit_value",[],p[1])
 
 # imprimir error y ubicación
 
