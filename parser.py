@@ -35,7 +35,7 @@ class Node:
 def p_program(p):
     '''program : statements
     '''
-    p[0]=Node('program', p[1])
+    p[0]=Node('program', [p[1]])
 
 # Statements, pueden ser uno o mas (bloques)
 
@@ -259,7 +259,7 @@ def p_lit_value(p):  # uso de valores literales
                 | STRING 
                 | BOOL 
     '''
-    p[0]==Node("lit_value",[],p[1])
+    p[0]=Node("lit_value",[],p[1])
 
 # imprimir error y ubicación
 
