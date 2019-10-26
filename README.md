@@ -237,7 +237,7 @@ $ ./run2.sh > results2.txt
 
 + La identificación de tokens resulta exitosa, tanto en los sets previos como en los recien añadidos.
 
-+ El análisis de sintaxis muestra el arbol de sintaxis haciendo uso de una representacion por niveles (BFS), de igual manera se muestran los errores inyectados a proposito en de ``` ./test_set2/ ```, ``` ./test_set4/ ``` y ``` ./test_set5/ ```.
++ **El análisis de sintaxis muestra el arbol de sintaxis haciendo uso de una representacion por niveles (BFS)**, de igual manera se muestran los errores inyectados a proposito en de ``` ./test_set2/ ```, ``` ./test_set4/ ``` y ``` ./test_set5/ ```.
 
 + Sobre el ``` ./test_set5/ ```:
     1. Por su naturaleza de Ruby, es una gramática aceptada ya que ruby al ser interpretado y de tipado dinamico permite la reasignacion de variable independientemente del tipo inicial con el que fueron definidos
