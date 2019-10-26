@@ -14,7 +14,7 @@ for filename in ./test_set1/*.rb; do
 done
 
 echo -e "\n\n"--------------------------------
-echo -e "\n\n"********************************
+echo -e "\n\n"####################################################
 echo -e "\n\n"--------------------------------
 echo -e "\n\n"Sintactical Errors Test Cases
 
