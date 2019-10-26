@@ -267,5 +267,5 @@ $ python3 main_parser.py [ruby_file]
 ```
 #### Output
 
-Si hay errores de sintaxis mostraran en el outout
+Si hay errores de sintaxis mostraran en el output
 
