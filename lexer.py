@@ -10,9 +10,9 @@ tokens = ('GT', 'LE', 'PRINT', 'INTEGER', 'END',
           'GE', 'LPAREN', 'STRING', 'TIMES', 'OR',
           'NE', 'DIVIDE', 'AND', 'IF',
           'MODULO', 'BOOL', 'DO', 'ELSE', 'MINUS',
-          'SEMICOLON', 'EQ', 'INPUT_S', 'LT',
+          'EQ', 'INPUT_S', 'LT',
           'THEN', 'RPAREN', 'PLUS', 'WHILE', 'NOT',
-          'ID', 'ASS_OP', 'INPUT_I', 'NEWLINE', 'CONSTANT')
+          'ID', 'ASS_OP', 'INPUT_I',  'CONSTANT')
 
 
 # Expresiones regulares 'to match'
@@ -42,11 +42,10 @@ t_MODULO = r'\%'
 #t_END= r'end'
 t_PLUS = r'\+'
 #t_SEMICOLON = r'\;'
-t_ignore = '[ \t]'
 
 
-def t_SEMICOLON(t):
-    r'\;'
+def t_IGNORE(t):
+    r'\t|\n|\;|\ '
     pass
 
 

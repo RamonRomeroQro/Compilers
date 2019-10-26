@@ -22,6 +22,15 @@
 
 -----
 
+## Indice
++ [Características](#Características-a-considerar)
+
++ [Primera Entrega](#Primera-Entrega)
+
++ [Segunda Entrega](#Segunda-Entrega)
+
+
+-----
 
 
 ## Características a considerar
@@ -49,8 +58,8 @@
 
     '''
    
-    statements  : T statement T statements	
-                | T statement T 
+    statements  : statement statements	
+                | statement 
     '''
 
 
@@ -65,8 +74,10 @@ Las constantes son identificadas son identificadas por que comienzan con una let
 
 
 > The Ruby interpreter does not actually enforce the constancy of constants.
+
 >https://www.oreilly.com/library/view/the-ruby-programming/9780596516178/ch04s03.html
-https://ruby-doc.org/docs/ruby-doc-bundle/UsersGuide/rg/constants.html
+
+>https://ruby-doc.org/docs/ruby-doc-bundle/UsersGuide/rg/constants.html
 
 
 
@@ -97,7 +108,7 @@ https://ruby-doc.org/docs/ruby-doc-bundle/UsersGuide/rg/constants.html
 
 ## Primera Entrega
 
-### Casos de prueba de unidad
+### Casos de Prueba de Unidad (TestSet1)
 
 En directorio ``` /test_set1/ ```
 
@@ -111,12 +122,10 @@ En directorio ``` /test_set1/ ```
 8. Un programa sencillo usando las instrucciones de entrada y salida.
 9. Un programa sencillo con todas las instrucciones que has definido (mixed).
 
----
 
-## Casos de prueba
+### TestSet2
 
 En directorio ``` /test_set2/ ```
-
 
 También debes crear los siguientes casos de prueba, todos deben definir:
 
@@ -126,9 +135,10 @@ También debes crear los siguientes casos de prueba, todos deben definir:
 
 Todos los tokens no definidos en la definición formal de tu lenguaje deberán generar un error.
 Todos los errores contenidos en una entrada deben estar presentes.
-Si alguno de estos requisitos no se aplica a tu lenguaje de programación, prepárate para explicar por qué.
 
-## Ejecucion y resultados
+Si alguno de estos requisitos no se aplica a tu lenguaje de programación, prepárate para explicar por qué (Descrito en [Características](#Características-a-considerar)).
+
+## Ejecucion 
 
 **El script de bash ejecuta el lexer y parser de todos los casos de prueba definidos y el resultado del analisis esta en ``` results.txt ```** (ya existente).
 
@@ -136,53 +146,30 @@ A ejecutar:
 
 ``` bash
 
-$ ./run_all.sh > results.txt
+$ ./run_all.sh > results1.txt
 
 ```
 
-### Notas
+## Resultados
 
 + Tras ejecutar las prubas, la identificación de tokens resulta exitosa.
 + De igual que la detección de errores se sintaxis en el segundo set de pruebas.
 
 
 ----
-### Ejecución Lexer
-
-``` bash
-
-$ python3 main_lexer.py [ruby_file]
-
-```
-#### Output
-
-El output sera un listado de todos los tokens
-
-
-### Ejecución Parser
-
-``` bash
-
-$ python3 main_parser.py [ruby_file]
-
-```
-#### Output
-
-Si hay errores de sintaxis mostraran en el outout
-
-
-----
 
 ## Segunda Entrega
 
+>**Todos los casos de prueba previos todavía son válidos.**
+
+
 ### TestSet3
 
-En directorio ``` /test_set3/ ```
+Ademas, espero ver el AST (Abstract Syntax Tree) de estos casos, en directorio ``` /test_set3/ ```:
 
-Todos los casos de prueba previo todavía son válidos. Ademas, espero ver el AST (Abstract Syntax Tree)de estos casos:
 1.  Un programa sencillo con la definición de una variable.
 2.  Un programa sencillo con la definición de una constante.
-3.  Un programa sencillo con un ciclo y una condicional. Un programa con todas las instrucciones defini-das.
+3.  Un programa sencillo con un ciclo y una condicional. Un programa con todas las instrucciones definidas.
 
 ### TestSet4
 
@@ -194,7 +181,7 @@ Todos los casos de prueba previo todavía son válidos. Ademas, espero ver el AS
 
 + Los siguientes casos nuevos deben de pasar (aún cuando contengas entradas incorrectas).Asignar el valor a una variable que no corresponde con su tipo. Por ejemplo:
 
-    ``` c
+    ``` c++
     int a;
     a = "hello";
     ```
@@ -234,37 +221,28 @@ Todos los casos de prueba previo todavía son válidos. Ademas, espero ver el AS
 
 ```
 
-## Casos de prueba
-
-En directorio ``` /test_set2/ ```
-
-
-También debes crear los siguientes casos de prueba, todos deben definir:
-
-1. Un programa sencillo con la definición de una variable en el lugar incorrecto y en el orden incorrecto.
-2. Un programa sencillo que utiliza una cadena, variable y constante en un lugar que no está permitido.
-3. Un programa sencillo con un ciclo definido pero usando una gramática incorrecta.
-
-Todos los tokens no definidos en la definición formal de tu lenguaje deberán generar un error.
-Todos los errores contenidos en una entrada deben estar presentes.
-Si alguno de estos requisitos no se aplica a tu lenguaje de programación, prepárate para explicar por qué.
-
 ## Ejecucion y resultados
 
-**El script de bash ejecuta el lexer y parser de todos los casos de prueba definidos y el resultado del analisis esta en ``` results.txt ```** (ya existente).
+**El script de bash ejecuta el lexer y parser de todos los casos de prueba definidos y el resultado del analisis esta en ``` results2.txt ```** (ya existente).
 
 A ejecutar:
 
 ``` bash
 
-$ ./run_all.sh > results.txt
+$ ./run2.sh > results2.txt
 
 ```
 
-### Notas
+### Resultados
 
-+ Tras ejecutar las prubas, la identificación de tokens resulta exitosa.
-+ De igual que la detección de errores se sintaxis en el segundo set de pruebas.
++ La identificación de tokens resulta exitosa, tanto en los sets previos como en los recien añadidos.
+
++ El análisis de sintaxis muestra el arbol de sintaxis haciendo uso de una representacion por niveles (BFS), de igual manera se muestran los errores inyectados a proposito en de ``` ./test_set2/ ```, ``` ./test_set4/ ``` y ``` ./test_set5/ ```.
+
++ Sobre el ``` ./test_set5/ ```:
+    1. Por su naturaleza de Ruby, es una gramática aceptada ya que ruby al ser interpretado y de tipado dinamico permite la reasignacion de variable independientemente del tipo inicial con el que fueron definidos
+    2. Dentro de las características inicialmente definidas, no se incluyo el paradigma de Programación Orientada a Objetos
+    3. Por su naturaleza de Ruby, es una gramática aceptada ya que ruby al ser interpretado y de tipado dinamico, su escope tambien es dinámico y global.
 
 
 ----
