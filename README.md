@@ -15,6 +15,7 @@
     GNU General Public License for more details.
     You should have received a copy of the GNU General Public License
     along with this program.  If not, see <https://www.gnu.org/licenses/>.
+    V.27102019
 
     Special thanks to: 
     @Manchas2k4, @EduardoLarios and @dabeaz (PLY)
@@ -26,8 +27,11 @@
 + [Características](#Características-a-considerar)
 
 + [Primera Entrega](#Primera-Entrega)
+    + [Resultados](#Resultados-1)
 
 + [Segunda Entrega](#Segunda-Entrega)
+    + [Resultados](#Resultados-2)
+
 
 
 -----
@@ -138,6 +142,12 @@ Todos los errores contenidos en una entrada deben estar presentes.
 
 Si alguno de estos requisitos no se aplica a tu lenguaje de programación, prepárate para explicar por qué (Descrito en [Características](#Características-a-considerar)).
 
+
+## Resultados 1
+
++ Tras ejecutar las prubas, la identificación de tokens resulta exitosa.
++ De igual que la detección de errores se sintaxis en el segundo set de pruebas.
+
 ## Ejecucion 
 
 **El script de bash ejecuta el lexer y parser de todos los casos de prueba definidos y el resultado del analisis esta en ``` results.txt ```** (ya existente).
@@ -149,11 +159,6 @@ A ejecutar:
 $ ./run_all.sh > results1.txt
 
 ```
-
-## Resultados
-
-+ Tras ejecutar las prubas, la identificación de tokens resulta exitosa.
-+ De igual que la detección de errores se sintaxis en el segundo set de pruebas.
 
 
 ----
@@ -221,7 +226,20 @@ Ademas, espero ver el AST (Abstract Syntax Tree) de estos casos, en directorio `
 
 ```
 
-## Ejecucion y resultados
+
+
+### Resultados 2
+
++ La identificación de tokens resulta exitosa, tanto en los sets previos como en los recien añadidos.
+
++ **El análisis de sintaxis muestra el arbol de sintaxis haciendo uso de una representacion por niveles (BFS)**, de igual manera se muestran los errores inyectados a proposito en de ``` ./test_set2/ ```, ``` ./test_set4/ ``` y ``` ./test_set5/ ```.
+
++ Sobre el ``` ./test_set5/ ```:
+    1. Por su naturaleza de Ruby, es una gramática aceptada ya que ruby al ser interpretado y de tipado dinamico permite la reasignacion de variable independientemente del tipo inicial con el que fueron definidos
+    2. Dentro de las características inicialmente definidas, no se incluyo el paradigma de Programación Orientada a Objetos, por lo cual es una gramática no aceptada.
+    3. Por su naturaleza de Ruby, es una gramática aceptada ya que ruby al ser interpretado y de tipado dinamico, su escope tambien es dinámico y global.
+
+## Ejecución 
 
 **El script de bash ejecuta el lexer y parser de todos los casos de prueba definidos y el resultado del analisis esta en ``` results2.txt ```** (ya existente).
 
@@ -232,18 +250,6 @@ A ejecutar:
 $ ./run2.sh > results2.txt
 
 ```
-
-### Resultados
-
-+ La identificación de tokens resulta exitosa, tanto en los sets previos como en los recien añadidos.
-
-+ **El análisis de sintaxis muestra el arbol de sintaxis haciendo uso de una representacion por niveles (BFS)**, de igual manera se muestran los errores inyectados a proposito en de ``` ./test_set2/ ```, ``` ./test_set4/ ``` y ``` ./test_set5/ ```.
-
-+ Sobre el ``` ./test_set5/ ```:
-    1. Por su naturaleza de Ruby, es una gramática aceptada ya que ruby al ser interpretado y de tipado dinamico permite la reasignacion de variable independientemente del tipo inicial con el que fueron definidos
-    2. Dentro de las características inicialmente definidas, no se incluyo el paradigma de Programación Orientada a Objetos
-    3. Por su naturaleza de Ruby, es una gramática aceptada ya que ruby al ser interpretado y de tipado dinamico, su escope tambien es dinámico y global.
-
 
 ----
 ### Ejecución Lexer
